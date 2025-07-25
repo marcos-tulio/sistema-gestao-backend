@@ -7,7 +7,7 @@ const fs = require("fs")
 
 require('dotenv').config()
 
-const PORT = process.env.PORT || 3003
+const PORT = process.env.PORT || 80
 
 server.use(cors())
 
