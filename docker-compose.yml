@@ -8,5 +8,8 @@ services:
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT_INTERNAL}"
 
+    volumes:
+      - .:/api
+
     environment:
       - NODE_ENV=${NODE_ENV}

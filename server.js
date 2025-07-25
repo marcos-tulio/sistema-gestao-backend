@@ -5,7 +5,11 @@ const router = jsonServer.router("db.json")
 const middlewares = jsonServer.defaults()
 const fs = require("fs")
 
-server.use(cors()) // ou configure com opções: cors({ origin: 'http://localhost:5173' })
+require('dotenv').config()
+
+const PORT = process.env.PORT || 3003
+
+server.use(cors())
 
 server.use(middlewares)
 
@@ -34,7 +38,7 @@ server.get("/financial/types/:id/categories", (req, res) => {
 })
 
 server.use(router)
-server.listen(3003, () => {
+server.listen(PORT, () => {
     console.log("JSON Server is running")
 })
 
