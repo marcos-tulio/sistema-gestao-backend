@@ -1,0 +1,655 @@
+{
+  "financial": {
+    "types" : [
+      {
+        "id": 1,
+        "title": "Faturamento",
+        "input": true,
+        "categories": [
+          {
+            "id": 1,
+            "title": "Receitas",
+            "order": 1,
+            "items": [
+              {
+                "id": 1,
+                "title": "Receitas R$",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 83297.68,
+                      "feb": 32347.96,
+                      "mar": 45529.95,
+                      "apr": 100000.00,
+                      "may": 120000.00,
+                      "jun": 120000.00,
+                      "jul": 120000.00,
+                      "aug": 150000.00,
+                      "sep": 150000.00,
+                      "oct": 150000.00,
+                      "nov": 150000.00,
+                      "dec": 150000.00
+                    }
+                  }
+                ]
+              }
+            ],
+            "total": [
+              {
+                "year": 2025,
+                "monthly": {
+                  "jan": 83297.68,
+                  "feb": 32347.96,
+                  "mar": 45529.95,
+                  "apr": 100000.00,
+                  "may": 120000.00,
+                  "jun": 120000.00,
+                  "jul": 120000.00,
+                  "aug": 150000.00,
+                  "sep": 150000.00,
+                  "oct": 150000.00,
+                  "nov": 150000.00,
+                  "dec": 150000.00
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "year": 2025,
+            "monthly": {
+              "jan": 83297.68,
+              "feb": 32347.96,
+              "mar": 45529.95,
+              "apr": 100000.00,
+              "may": 120000.00,
+              "jun": 120000.00,
+              "jul": 120000.00,
+              "aug": 150000.00,
+              "sep": 150000.00,
+              "oct": 150000.00,
+              "nov": 150000.00,
+              "dec": 150000.00
+            },
+            "annual": 1331175.59
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Despesas Fixas",
+        "input": false,
+        "categories": [
+          {
+            "id": 1,
+            "title": "Despesas Financeiras",
+            "order": 1,
+            "items": [
+              {
+                "id": 1,
+                "title": "Tarifas bancárias",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "feb": 850
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "title": "Máquina de cartão",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "feb": 550.25,
+                      "apr": 850
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "title": "DOC/TED",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {}
+                  }
+                ]
+              },
+              {
+                "id": 4,
+                "title": "Outros custos com despesas financeiras",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {}
+                  }
+                ]
+              },
+              {
+                "id": 5,
+                "title": "Juros",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {}
+                  }
+                ]
+              },
+              {
+                "id": 6,
+                "title": "Empréstimos",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 450,
+                      "feb": 440,
+                      "mar": 450
+                    }
+                  }
+                ]
+              }
+            ],
+            "total": [
+              {
+                "year": 2025,
+                "monthly": {
+                  "jan": 450,
+                  "feb": 440,
+                  "mar": 450
+                }
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Despesas Administrativas",
+            "order": 3,
+            "items": [
+              {
+                "id": 1,
+                "title": "Telefone Móvel (Vivo)",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 39.99,
+                      "feb": 39.99,
+                      "mar": 79.98,
+                      "apr": 323.18,
+                      "may": 133.55,
+                      "jun": 49.9,
+                      "jul": 49.9,
+                      "aug": 49.9,
+                      "sep": 49.9,
+                      "oct": 49.9,
+                      "nov": 49.9,
+                      "dec": 49.9
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "title": "Internet (Vivo)",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 169.99,
+                      "feb": 299.98,
+                      "mar": 153.37,
+                      "apr": 149.99,
+                      "may": 149.99,
+                      "jun": 149.99,
+                      "jul": 59.9,
+                      "aug": 59.9,
+                      "sep": 59.9,
+                      "oct": 59.9,
+                      "nov": 59.9,
+                      "dec": 59.9
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "title": "Luz (Enel)",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 128.24,
+                      "feb": 113.36,
+                      "mar": 92.37,
+                      "apr": 150.79,
+                      "may": 198.59,
+                      "jun": 500,
+                      "jul": 500,
+                      "aug": 500,
+                      "sep": 500,
+                      "oct": 500,
+                      "nov": 500,
+                      "dec": 500
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 4,
+                "title": "Aluguel e água",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 2200,
+                      "feb": 2200,
+                      "mar": 2200,
+                      "apr": 2200,
+                      "may": 2200,
+                      "jun": 1200,
+                      "jul": 1200,
+                      "aug": 1200,
+                      "sep": 1200,
+                      "oct": 1200,
+                      "nov": 1200,
+                      "dec": 1200
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 5,
+                "title": "Condomínio (Paraíso Work Center)",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 1600,
+                      "feb": 1600,
+                      "mar": 1600,
+                      "apr": 1600,
+                      "may": 1600,
+                      "jun": 3200,
+                      "jul": 3200,
+                      "aug": 3200,
+                      "sep": 3200,
+                      "oct": 3200,
+                      "nov": 3200,
+                      "dec": 3200
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 6,
+                "title": "CRM (Kommo)",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 478.5,
+                      "feb": 560,
+                      "mar": 560,
+                      "apr": 560,
+                      "may": 560,
+                      "jun": 560,
+                      "jul": 560,
+                      "aug": 560,
+                      "sep": 560,
+                      "oct": 560,
+                      "nov": 560,
+                      "dec": 560
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 7,
+                "title": "Assinatura Digital (Gestão DS)",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 90,
+                      "feb": 90,
+                      "mar": 90,
+                      "apr": 90,
+                      "may": 90,
+                      "jun": 90,
+                      "jul": 90,
+                      "aug": 90,
+                      "sep": 90,
+                      "oct": 90,
+                      "nov": 90,
+                      "dec": 90
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 8,
+                "title": "BPO Financeiro (Solucionna)",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 1899,
+                      "feb": 1899,
+                      "mar": 1899,
+                      "apr": 1899,
+                      "may": 1899,
+                      "jun": 1899,
+                      "jul": 1899,
+                      "aug": 1899,
+                      "sep": 1899,
+                      "oct": 1899,
+                      "nov": 1899,
+                      "dec": 1899
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 9,
+                "title": "Contabilidade (KS)",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 520,
+                      "feb": 520,
+                      "mar": 520,
+                      "apr": 520,
+                      "may": 520,
+                      "jun": 520,
+                      "jul": 520,
+                      "aug": 520,
+                      "sep": 520,
+                      "oct": 520,
+                      "nov": 520,
+                      "dec": 520
+                    }
+                  }
+                ]
+              }
+            ],
+            "total": [
+              {
+                "year": 2025,
+                "monthly": {
+                  "jan": 7125.72,
+                  "feb": 7322.33,
+                  "mar": 7194.72,
+                  "apr": 7492.96,
+                  "may": 7351.13,
+                  "jun": 8168.89,
+                  "jul": 8078.80,
+                  "aug": 8078.80,
+                  "sep": 8078.80,
+                  "oct": 8078.80,
+                  "nov": 8078.80,
+                  "dec": 8078.80
+                }
+              }
+            ]
+          }
+          ,
+          {
+            "id": 3,
+            "title": "Despesas com Pessoas",
+            "order": 2,
+            "items": [
+              {
+                "id": 1,
+                "title": "Salário da recepcionista",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 1320,
+                      "feb": 1320,
+                      "mar": 1320
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "title": "Pró-labore",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 1000,
+                      "feb": 1000,
+                      "mar": 1000
+                    }
+                  }
+                ]
+              }
+            ],
+            "total": [
+              {
+                "year": 2025,
+                "monthly": {
+                  "jan": 2509.45,
+                  "feb": 2509.45,
+                  "mar": 2509.45
+                }
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "title": "Despesas com terceiros",
+            "order": 4,
+            "items": [],
+            "total": []
+          },
+          {
+            "id": 5,
+            "title": "Despesas com limpeza e outros",
+            "order": 5,
+            "items": [],
+            "total": []
+          },
+          {
+            "id": 6,
+            "title": "Outras despesas",
+            "order": 6,
+            "items": [],
+            "total": []
+          }
+        ],
+        "total": [
+          {
+            "year": 2025,
+            "monthly": {
+              "jan": 42640.19,
+              "feb": 36085.75,
+              "mar": 64784.76,
+              "apr": 35516.02,
+              "may": 35848.46,
+              "jun": 40591.31,
+              "jul": 47431.22,
+              "aug": 45761.55,
+              "sep": 75262.55,
+              "oct": 75263.55,
+              "nov": 75264.55,
+              "dec": 79013.37
+            },
+            "annual": 653463.27
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Investimentos",
+        "input": false,
+        "categories": [
+          {
+            "id": 1,
+            "title": "Investimentos em Marketing",
+            "items": [],
+            "total": []
+          },
+          {
+            "id": 2,
+            "title": "Seguro Patrimônial",
+            "items": [],
+            "total": []
+          },
+          {
+            "id": 3,
+            "title": "Investimentos em Gestão e Cursos",
+            "items": [
+              {
+                "id": 1,
+                "title": "Consultoria",
+                "values": []
+              },
+              {
+                "id": 2,
+                "title": "Treinamentos",
+                "values": []
+              },
+              {
+                "id": 3,
+                "title": "Outros investimentos em gestão",
+                "values": []
+              },
+              {
+                "id": 4,
+                "title": "Curso de platinado",
+                "values": []
+              }
+            ],
+            "total": []
+          },
+          {
+            "id": 4,
+            "title": "Outros Investimentos",
+            "items": [
+              {
+                "id": 1,
+                "title": "Pagamento de cadeira",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 250,
+                      "feb": 250,
+                      "mar": 250
+                    }
+                  }
+                ]
+              }
+            ],
+            "total": []
+          }
+        ],
+        "total": [
+          {
+            "year": 2025,
+            "monthly": {
+              "jan": 15666.60,
+              "feb": 13108.21,
+              "mar": 17715.76,
+              "apr": 13249.00,
+              "may": 15949.00,
+              "jun": 15949.00,
+              "jul": 15949.00,
+              "aug": 15949.00,
+              "sep": 17949.00,
+              "oct": 17949.00,
+              "nov": 17949.00,
+              "dec": 14949.00
+            },
+            "annual": 192331.57
+          }
+        ]
+      }
+    ],
+    "total": {
+      "input": [
+        {
+          "year": 2025,
+          "monthly": {
+            "jan": 83297.68,
+            "feb": 32347.96,
+            "mar": 45529.95,
+            "apr": 100000.00,
+            "may": 120000.00,
+            "jun": 120000.00,
+            "jul": 120000.00,
+            "aug": 150000.00,
+            "sep": 150000.00,
+            "oct": 150000.00,
+            "nov": 150000.00,
+            "dec": 150000.00
+          },
+          "annual": 1331175.59
+        }
+      ],
+      "output": [
+        {
+          "year": 2025,
+          "monthly": {
+            "jan": 83631.45,
+            "feb": 61182.47,
+            "mar": 91449.07,
+            "apr": 77829.96,
+            "may": 74280.95,
+            "jun": 82700.31,
+            "jul": 89540.22,
+            "aug": 92910.55,
+            "sep": 124411.55,
+            "oct": 124412.45,
+            "nov": 124413.45,
+            "dec": 125162.37
+          },
+          "annual": 1111924.99
+        }
+      ],
+      "profit": [
+        {
+          "year": 2025,
+          "monthly": {
+            "jan": -333.77,
+            "feb": -28834.51,
+            "mar": -45919.12,
+            "apr": 22170.04,
+            "may": 45719.05,
+            "jun": 37299.69,
+            "jul": 30459.78,
+            "aug": 57089.45,
+            "sep": 25588.45,
+            "oct": 25587.45,
+            "nov": 25586.45,
+            "dec": 24837.63
+          },
+          "annual": 219250.60
+        }
+      ]
+    }
+  },
+
+  "user": {
+    "id": 1,
+    "name": "Lucas",
+    "email": "lucas@lucas",
+    "image": "https://picsum.photos/id/64/300/400.jpg",
+    "business": {
+      "name": "Salão da Mancini",
+      "logo": "https://blog.agenciadosite.com.br/wp-content/uploads/2017/02/logo-mancini-e1486727339396.jpg"
+    }
+  }
+}
