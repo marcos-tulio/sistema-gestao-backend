@@ -651,5 +651,574 @@
       "name": "Salão da Mancini",
       "logo": "https://blog.agenciadosite.com.br/wp-content/uploads/2017/02/logo-mancini-e1486727339396.jpg"
     }
-  }
+  },
+
+  "materials": [
+    {
+      "id": 1,
+      "item": "Agulha hipodérmica 30x0,70 22g (Apiração)",
+      "quantity": 100,
+      "unit": "un.",
+      "purchaseValue": 14.67,
+      "costPerQuantity": 0.15
+    },
+    {
+      "id": 2,
+      "item": "Seringa Insulina 1mL",
+      "quantity": 100,
+      "unit": "un.",
+      "purchaseValue": 33.42,
+      "costPerQuantity": 0.33
+    },
+    {
+      "id": 3,
+      "item": "Cartucho Dermafusion",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 279.0,
+      "costPerQuantity": 27.9
+    },
+    {
+      "id": 4,
+      "item": "Dysport 500",
+      "quantity": 8,
+      "unit": "mL",
+      "purchaseValue": 1902.22,
+      "costPerQuantity": 237.78
+    },
+    {
+      "id": 5,
+      "item": "Restylane Refine",
+      "quantity": 1,
+      "unit": "un.",
+      "purchaseValue": 243.33,
+      "costPerQuantity": 243.33
+    },
+    {
+      "id": 6,
+      "item": "Restylane Kiss",
+      "quantity": 2,
+      "unit": "un.",
+      "purchaseValue": 864.44,
+      "costPerQuantity": 432.22
+    },
+    {
+      "id": 7,
+      "item": "Restylane Lift",
+      "quantity": 2,
+      "unit": "un.",
+      "purchaseValue": 886.66,
+      "costPerQuantity": 443.33
+    },
+    {
+      "id": 8,
+      "item": "L-Cartinina 600mg",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 77.0,
+      "costPerQuantity": 7.7
+    },
+    {
+      "id": 9,
+      "item": "EGF 1% + IGF 1%",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 57.1,
+      "costPerQuantity": 5.71
+    },
+    {
+      "id": 10,
+      "item": "Cooper Peptídeo 10mg",
+      "quantity": 20,
+      "unit": "un.",
+      "purchaseValue": 97.4,
+      "costPerQuantity": 4.87
+    },
+    {
+      "id": 11,
+      "item": "Vitamina B3 (niacinamida)",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 39.0,
+      "costPerQuantity": 3.9
+    },
+    {
+      "id": 12,
+      "item": "L-Prolina 500mg",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 84.1,
+      "costPerQuantity": 8.41
+    },
+    {
+      "id": 13,
+      "item": "L-Metionina 100mg",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 45.0,
+      "costPerQuantity": 4.5
+    },
+    {
+      "id": 14,
+      "item": "EGF 1% + IGF 1% + TGFB3 1%",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 57.1,
+      "costPerQuantity": 5.71
+    },
+    {
+      "id": 15,
+      "item": "Minoxidil 5%",
+      "quantity": 20,
+      "unit": "un.",
+      "purchaseValue": 114.0,
+      "costPerQuantity": 5.7
+    },
+    {
+      "id": 16,
+      "item": "Biotina 10mg",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 44.4,
+      "costPerQuantity": 4.44
+    },
+    {
+      "id": 17,
+      "item": "Ac. Alfalipólico 300mg",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 116.25,
+      "costPerQuantity": 11.63
+    },
+    {
+      "id": 18,
+      "item": "CoQ10 100mg",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 193.76,
+      "costPerQuantity": 19.38
+    },
+    {
+      "id": 19,
+      "item": "Luva de Vinil",
+      "quantity": 1000,
+      "unit": "un.",
+      "purchaseValue": 170.82,
+      "costPerQuantity": 0.17
+    },
+    {
+      "id": 20,
+      "item": "Agulha Lebel Mesodérmica 0,23x4mm",
+      "quantity": 100,
+      "unit": "un.",
+      "purchaseValue": 126.78,
+      "costPerQuantity": 1.27
+    },
+    {
+      "id": 21,
+      "item": "Lidocaina 2% + Epinefrina 1:100",
+      "quantity": 50,
+      "unit": "un.",
+      "purchaseValue": 243.55,
+      "costPerQuantity": 4.87
+    },
+    {
+      "id": 22,
+      "item": "Luva Cirúrgicas",
+      "quantity": 2,
+      "unit": "un.",
+      "purchaseValue": 9.86,
+      "costPerQuantity": 4.93
+    },
+    {
+      "id": 23,
+      "item": "Fita Cirúrgica Microporosa",
+      "quantity": 6,
+      "unit": "un.",
+      "purchaseValue": 43.07,
+      "costPerQuantity": 7.18
+    },
+    {
+      "id": 24,
+      "item": "Soro Fisiológico 0,9%",
+      "quantity": 100,
+      "unit": "un.",
+      "purchaseValue": 86.21,
+      "costPerQuantity": 0.86
+    },
+    {
+      "id": 25,
+      "item": "Fio Mononylon 4-0",
+      "quantity": 7,
+      "unit": "un.",
+      "purchaseValue": 15.75,
+      "costPerQuantity": 2.25
+    },
+    {
+      "id": 26,
+      "item": "Punch 4mm",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 154.0,
+      "costPerQuantity": 15.4
+    },
+    {
+      "id": 27,
+      "item": "Bisturi Descartável",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 21.0,
+      "costPerQuantity": 2.1
+    },
+    {
+      "id": 28,
+      "item": "Rioex Clorexina Aquosa",
+      "quantity": 1000,
+      "unit": "mL",
+      "purchaseValue": 57.39,
+      "costPerQuantity": 0.06
+    },
+    {
+      "id": 29,
+      "item": "Vitamina D3 600ui",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 202.4,
+      "costPerQuantity": 20.24
+    },
+    {
+      "id": 30,
+      "item": "Metilcobalamina 2500mcg",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 251.9,
+      "costPerQuantity": 25.19
+    },
+    {
+      "id": 31,
+      "item": "Vitamina B6 (Piridoxina)",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 42.9,
+      "costPerQuantity": 4.29
+    },
+    {
+      "id": 32,
+      "item": "D-Pantenol 40mg",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 36.4,
+      "costPerQuantity": 3.64
+    },
+    {
+      "id": 33,
+      "item": "L-Taurina 10%",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 38.1,
+      "costPerQuantity": 3.81
+    },
+    {
+      "id": 34,
+      "item": "IGF 1% + BFGF 1% + VEGF 1% + Cooper Peptídeo 1%",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 62.7,
+      "costPerQuantity": 6.27
+    },
+    {
+      "id": 35,
+      "item": "Dimetilsulfóxido 99,99%",
+      "quantity": 10,
+      "unit": "un.",
+      "purchaseValue": 39.4,
+      "costPerQuantity": 3.94
+    },
+    {
+      "id": 36,
+      "item": "Kit Sutura Descartável",
+      "quantity": 2,
+      "unit": "un.",
+      "purchaseValue": 172.84,
+      "costPerQuantity": 86.42
+    },
+    {
+      "id": 37,
+      "item": "Gase Estéril Fio 13",
+      "quantity": 100,
+      "unit": "un.",
+      "purchaseValue": 133.74,
+      "costPerQuantity": 1.34
+    },
+    {
+      "id": 38,
+      "item": "Gase Não Estéril",
+      "quantity": 200,
+      "unit": "un.",
+      "purchaseValue": 78.52,
+      "costPerQuantity": 0.39
+    },
+    {
+      "id": 39,
+      "item": "Sacola de Papel",
+      "quantity": 100,
+      "unit": "un.",
+      "purchaseValue": 870.0,
+      "costPerQuantity": 8.7
+    },
+    {
+      "id": 40,
+      "item": "Papel Timbrado",
+      "quantity": 500,
+      "unit": "un.",
+      "purchaseValue": 250.0,
+      "costPerQuantity": 0.5
+    },
+    {
+      "id": 41,
+      "item": "Envelope",
+      "quantity": 100,
+      "unit": "un.",
+      "purchaseValue": 105.0,
+      "costPerQuantity": 1.05
+    },
+    {
+      "id": 42,
+      "item": "Cartão Fidelidade",
+      "quantity": 50,
+      "unit": "un.",
+      "purchaseValue": 385.0,
+      "costPerQuantity": 7.7
+    },
+    {
+      "id": 43,
+      "item": "Anestésico Tópico (Dermomax)",
+      "quantity": 80,
+      "unit": "g",
+      "purchaseValue": 62.46,
+      "costPerQuantity": 0.78
+    },
+    {
+      "id": 44,
+      "item": "Flyers",
+      "quantity": 700,
+      "unit": "un.",
+      "purchaseValue": 321.34,
+      "costPerQuantity": 0.46
+    },
+    {
+      "id": 45,
+      "item": "Uréia 20%",
+      "quantity": 30,
+      "unit": "mL",
+      "purchaseValue": 49.9,
+      "costPerQuantity": 1.66
+    },
+    {
+      "id": 46,
+      "item": "Ácido Retinoico 8%",
+      "quantity": 30,
+      "unit": "g",
+      "purchaseValue": 93.0,
+      "costPerQuantity": 3.1
+    },
+    {
+      "id": 47,
+      "item": "Alcool 70%",
+      "quantity": 5000,
+      "unit": "mL",
+      "purchaseValue": 65.69,
+      "costPerQuantity": 0.01
+    },
+    {
+      "id": 48,
+      "item": "Cotonetes De Maquiagem",
+      "quantity": 80,
+      "unit": "un.",
+      "purchaseValue": 11.04,
+      "costPerQuantity": 0.14
+    },
+    {
+      "id": 49,
+      "item": "ATA 30%",
+      "quantity": 30,
+      "unit": "mL",
+      "purchaseValue": 10.3,
+      "costPerQuantity": 0.34
+    },
+    {
+      "id": 50,
+      "item": "Cromóforo Tópico",
+      "quantity": 30,
+      "unit": "g",
+      "purchaseValue": 43.25,
+      "costPerQuantity": 1.44
+    },
+    {
+      "id": 51,
+      "item": "Agulha Infiltração 40x12mm 18G",
+      "quantity": 100,
+      "unit": "un.",
+      "purchaseValue": 10.49,
+      "costPerQuantity": 0.1
+    },
+    {
+      "id": 52,
+      "item": "Triancinolona 20mg/mL",
+      "quantity": 5,
+      "unit": "mL",
+      "purchaseValue": 132.49,
+      "costPerQuantity": 26.5
+    },
+    {
+      "id": 53,
+      "item": "Aluguel Ultraformer",
+      "quantity": 6,
+      "unit": "un.",
+      "purchaseValue": 1300.0,
+      "costPerQuantity": 216.67
+    },
+    {
+      "id": 54,
+      "item": "Disparo Ultraformer",
+      "quantity": 1,
+      "unit": "un.",
+      "purchaseValue": 1.89,
+      "costPerQuantity": 1.89
+    },
+    {
+      "id": 55,
+      "item": "Lavieen",
+      "quantity": 6,
+      "unit": "un.",
+      "purchaseValue": 1450.0,
+      "costPerQuantity": 241.67
+    },
+    {
+      "id": 56,
+      "item": "Técnica de Máquinas",
+      "quantity": 6,
+      "unit": "un.",
+      "purchaseValue": 300.0,
+      "costPerQuantity": 50.0
+    },
+    {
+      "id": 57,
+      "item": "Etherean",
+      "quantity": 6,
+      "unit": "un.",
+      "purchaseValue": 1400.0,
+      "costPerQuantity": 233.33
+    },
+    {
+      "id": 58,
+      "item": "Melora C Monoderma",
+      "quantity": 1,
+      "unit": "un.",
+      "purchaseValue": 230.0,
+      "costPerQuantity": 230.0
+    },
+    {
+      "id": 59,
+      "item": "Firmalize AOX",
+      "quantity": 1,
+      "unit": "un.",
+      "purchaseValue": 150.0,
+      "costPerQuantity": 150.0
+    },
+    {
+      "id": 60,
+      "item": "Heliomax Claro",
+      "quantity": 1,
+      "unit": "un.",
+      "purchaseValue": 60.0,
+      "costPerQuantity": 60.0
+    },
+    {
+      "id": 61,
+      "item": "Tirzepatida 2,5mg",
+      "quantity": 1,
+      "unit": "un.",
+      "purchaseValue": 1728.64,
+      "costPerQuantity": 1728.64
+    },
+    {
+      "id": 62,
+      "item": "Tirzepatida 5mg",
+      "quantity": 1,
+      "unit": "un.",
+      "purchaseValue": 2161.0,
+      "costPerQuantity": 2161.0
+    },
+    {
+      "id": 63,
+      "item": "Eletrodo Pads para Tenz",
+      "quantity": 30,
+      "unit": "un.",
+      "purchaseValue": 60.47,
+      "costPerQuantity": 2.02
+    },
+    {
+      "id": 64,
+      "item": "Ponteira Íntima",
+      "quantity": 1,
+      "unit": "un.",
+      "purchaseValue": 150.0,
+      "costPerQuantity": 150.0
+    },
+    {
+      "id": 65,
+      "item": "Ponteira Extra",
+      "quantity": 1,
+      "unit": "un.",
+      "purchaseValue": 150.0,
+      "costPerQuantity": 150.0
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "item": "Shampoo",
+      "quantity": 120,
+      "unit": "mL",
+      "purchaseValue": 56.00
+    },
+    {
+      "id": 2,
+      "item": "Condicionador",
+      "quantity": 120,
+      "unit": "mL",
+      "purchaseValue": 45.50
+    },
+    {
+      "id": 3,
+      "item": "Máscara capilar",
+      "quantity": 80,
+      "unit": "g",
+      "purchaseValue": 60.00
+    },
+    {
+      "id": 4,
+      "item": "Óleo capilar",
+      "quantity": 30,
+      "unit": "mL",
+      "purchaseValue": 42.00
+    },
+    {
+      "id": 5,
+      "item": "Escova de LED",
+      "quantity": 1,
+      "unit": "un.",
+      "purchaseValue": 50.83
+    },
+    {
+      "id": 6,
+      "item": "Escova massageadora",
+      "quantity": 1,
+      "unit": "un.",
+      "purchaseValue": 2.60
+    }
+  ]
+
 }
