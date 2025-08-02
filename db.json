@@ -1,6 +1,6 @@
 {
   "financial": {
-    "types" : [
+    "types": [
       {
         "id": 1,
         "title": "Faturamento",
@@ -21,15 +21,15 @@
                       "jan": 83297.68,
                       "feb": 32347.96,
                       "mar": 45529.95,
-                      "apr": 100000.00,
-                      "may": 120000.00,
-                      "jun": 120000.00,
-                      "jul": 120000.00,
-                      "aug": 150000.00,
-                      "sep": 150000.00,
-                      "oct": 150000.00,
-                      "nov": 150000.00,
-                      "dec": 150000.00
+                      "apr": 100000,
+                      "may": 120000,
+                      "jun": 120000,
+                      "jul": 120000,
+                      "aug": 150000,
+                      "sep": 150000,
+                      "oct": 150000,
+                      "nov": 150000,
+                      "dec": 150000
                     }
                   }
                 ]
@@ -42,15 +42,15 @@
                   "jan": 83297.68,
                   "feb": 32347.96,
                   "mar": 45529.95,
-                  "apr": 100000.00,
-                  "may": 120000.00,
-                  "jun": 120000.00,
-                  "jul": 120000.00,
-                  "aug": 150000.00,
-                  "sep": 150000.00,
-                  "oct": 150000.00,
-                  "nov": 150000.00,
-                  "dec": 150000.00
+                  "apr": 100000,
+                  "may": 120000,
+                  "jun": 120000,
+                  "jul": 120000,
+                  "aug": 150000,
+                  "sep": 150000,
+                  "oct": 150000,
+                  "nov": 150000,
+                  "dec": 150000
                 }
               }
             ]
@@ -63,15 +63,15 @@
               "jan": 83297.68,
               "feb": 32347.96,
               "mar": 45529.95,
-              "apr": 100000.00,
-              "may": 120000.00,
-              "jun": 120000.00,
-              "jul": 120000.00,
-              "aug": 150000.00,
-              "sep": 150000.00,
-              "oct": 150000.00,
-              "nov": 150000.00,
-              "dec": 150000.00
+              "apr": 100000,
+              "may": 120000,
+              "jun": 120000,
+              "jul": 120000,
+              "aug": 150000,
+              "sep": 150000,
+              "oct": 150000,
+              "nov": 150000,
+              "dec": 150000
             },
             "annual": 1331175.59
           }
@@ -79,6 +79,223 @@
       },
       {
         "id": 2,
+        "title": "Custos e despesas variáveis",
+        "input": false,
+        "categories": [
+          {
+            "id": 1,
+            "title": "Gastos Diretos",
+            "order": 1,
+            "items": [
+              {
+                "id": 1,
+                "title": "Comissão",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 319,
+                      "feb": 120,
+                      "mar": 96,
+                      "apr": 96,
+                      "may": 564,
+                      "jun": 2000,
+                      "jul": 2000,
+                      "aug": 2000,
+                      "sep": 2000,
+                      "oct": 2000,
+                      "nov": 2000,
+                      "dec": 2000
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "title": "Fornecedores",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 7216.76,
+                      "feb": 3830.47,
+                      "mar": 2335.33,
+                      "apr": 8250.23,
+                      "may": 6966.25,
+                      "jun": 4000,
+                      "jul": 4000,
+                      "aug": 4000,
+                      "sep": 4000,
+                      "oct": 4000,
+                      "nov": 4000,
+                      "dec": 4000
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "title": "Taxa de cartão",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 8579.66,
+                      "feb": 3331.84,
+                      "mar": 4689.58,
+                      "apr": 10300,
+                      "may": 12360,
+                      "jun": 12360,
+                      "jul": 12360,
+                      "aug": 15450,
+                      "sep": 15450,
+                      "oct": 15450,
+                      "nov": 15450,
+                      "dec": 15450
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 4,
+                "title": "Impostos",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 9209.24,
+                      "feb": 4706.2,
+                      "mar": 1827.64,
+                      "apr": 10418.71,
+                      "may": 2593.24,
+                      "jun": 7800,
+                      "jul": 7800,
+                      "aug": 9750,
+                      "sep": 9750,
+                      "oct": 9750,
+                      "nov": 9750,
+                      "dec": 9750
+                    }
+                  }
+                ]
+              }
+            ],
+            "total": [
+              {
+                "year": 2025,
+                "monthly": {
+                  "jan": 25324.66,
+                  "feb": 11988.51,
+                  "mar": 8948.55,
+                  "apr": 29064.94,
+                  "may": 22483.49,
+                  "jun": 26160,
+                  "jul": 26160,
+                  "aug": 31200,
+                  "sep": 31200,
+                  "oct": 31200,
+                  "nov": 31200,
+                  "dec": 31200
+                }
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Sálarios Diretos",
+            "order": 2,
+            "items": [
+              {
+                "id": 1,
+                "title": "Salário Amanda",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 1800,
+                      "feb": 1800,
+                      "mar": 2000,
+                      "apr": 2000,
+                      "may": 2000,
+                      "jun": 2000,
+                      "jul": 2000,
+                      "aug": 2000,
+                      "sep": 2000,
+                      "oct": 2000,
+                      "nov": 2000,
+                      "dec": 2000
+                    }
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "title": "Encargos Amanda",
+                "values": [
+                  {
+                    "year": 2025,
+                    "monthly": {
+                      "jan": 319,
+                      "feb": 120,
+                      "mar": 96,
+                      "apr": 96,
+                      "may": 564,
+                      "jun": 319,
+                      "jul": 420,
+                      "aug": 420,
+                      "sep": 420,
+                      "oct": 420,
+                      "nov": 420,
+                      "dec": 420
+                    }
+                  }
+                ]
+              }
+            ],
+            "total": [
+              {
+                "year": 2025,
+                "monthly": {
+                  "jan": 7125.72,
+                  "feb": 7322.33,
+                  "mar": 7194.72,
+                  "apr": 7492.96,
+                  "may": 7351.13,
+                  "jun": 8168.89,
+                  "jul": 8078.8,
+                  "aug": 8078.8,
+                  "sep": 8078.8,
+                  "oct": 8078.8,
+                  "nov": 8078.8,
+                  "dec": 8078.8
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "year": 2025,
+            "monthly": {
+              "jan": 42640.19,
+              "feb": 36085.75,
+              "mar": 64784.76,
+              "apr": 35516.02,
+              "may": 35848.46,
+              "jun": 40591.31,
+              "jul": 47431.22,
+              "aug": 45761.55,
+              "sep": 75262.55,
+              "oct": 75263.55,
+              "nov": 75264.55,
+              "dec": 79013.37
+            },
+            "annual": 653463.27
+          }
+        ]
+      },
+      {
+        "id": 3,
         "title": "Despesas Fixas",
         "input": false,
         "categories": [
@@ -391,17 +608,16 @@
                   "apr": 7492.96,
                   "may": 7351.13,
                   "jun": 8168.89,
-                  "jul": 8078.80,
-                  "aug": 8078.80,
-                  "sep": 8078.80,
-                  "oct": 8078.80,
-                  "nov": 8078.80,
-                  "dec": 8078.80
+                  "jul": 8078.8,
+                  "aug": 8078.8,
+                  "sep": 8078.8,
+                  "oct": 8078.8,
+                  "nov": 8078.8,
+                  "dec": 8078.8
                 }
               }
             ]
-          }
-          ,
+          },
           {
             "id": 3,
             "title": "Despesas com Pessoas",
@@ -491,7 +707,7 @@
         ]
       },
       {
-        "id": 3,
+        "id": 4,
         "title": "Investimentos",
         "input": false,
         "categories": [
@@ -560,18 +776,18 @@
           {
             "year": 2025,
             "monthly": {
-              "jan": 15666.60,
+              "jan": 15666.6,
               "feb": 13108.21,
               "mar": 17715.76,
-              "apr": 13249.00,
-              "may": 15949.00,
-              "jun": 15949.00,
-              "jul": 15949.00,
-              "aug": 15949.00,
-              "sep": 17949.00,
-              "oct": 17949.00,
-              "nov": 17949.00,
-              "dec": 14949.00
+              "apr": 13249,
+              "may": 15949,
+              "jun": 15949,
+              "jul": 15949,
+              "aug": 15949,
+              "sep": 17949,
+              "oct": 17949,
+              "nov": 17949,
+              "dec": 14949
             },
             "annual": 192331.57
           }
@@ -586,15 +802,15 @@
             "jan": 83297.68,
             "feb": 32347.96,
             "mar": 45529.95,
-            "apr": 100000.00,
-            "may": 120000.00,
-            "jun": 120000.00,
-            "jul": 120000.00,
-            "aug": 150000.00,
-            "sep": 150000.00,
-            "oct": 150000.00,
-            "nov": 150000.00,
-            "dec": 150000.00
+            "apr": 100000,
+            "may": 120000,
+            "jun": 120000,
+            "jul": 120000,
+            "aug": 150000,
+            "sep": 150000,
+            "oct": 150000,
+            "nov": 150000,
+            "dec": 150000
           },
           "annual": 1331175.59
         }
@@ -636,12 +852,11 @@
             "nov": 25586.45,
             "dec": 24837.63
           },
-          "annual": 219250.60
+          "annual": 219250.6
         }
       ]
     }
   },
-
   "user": {
     "id": 1,
     "name": "Lucas",
@@ -652,14 +867,13 @@
       "logo": "https://blog.agenciadosite.com.br/wp-content/uploads/2017/02/logo-mancini-e1486727339396.jpg"
     }
   },
-
   "materials": [
     {
       "id": 1,
       "item": "Agulha hipodérmica 30x0,70 22g (Apiração)",
       "quantity": 100,
       "unit": "un.",
-      "purchaseValue": 14.67,
+      "purchasePrice": 14.67,
       "costPerQuantity": 0.15
     },
     {
@@ -667,7 +881,7 @@
       "item": "Seringa Insulina 1mL",
       "quantity": 100,
       "unit": "un.",
-      "purchaseValue": 33.42,
+      "purchasePrice": 33.42,
       "costPerQuantity": 0.33
     },
     {
@@ -675,7 +889,7 @@
       "item": "Cartucho Dermafusion",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 279.0,
+      "purchasePrice": 279,
       "costPerQuantity": 27.9
     },
     {
@@ -683,7 +897,7 @@
       "item": "Dysport 500",
       "quantity": 8,
       "unit": "mL",
-      "purchaseValue": 1902.22,
+      "purchasePrice": 1902.22,
       "costPerQuantity": 237.78
     },
     {
@@ -691,7 +905,7 @@
       "item": "Restylane Refine",
       "quantity": 1,
       "unit": "un.",
-      "purchaseValue": 243.33,
+      "purchasePrice": 243.33,
       "costPerQuantity": 243.33
     },
     {
@@ -699,7 +913,7 @@
       "item": "Restylane Kiss",
       "quantity": 2,
       "unit": "un.",
-      "purchaseValue": 864.44,
+      "purchasePrice": 864.44,
       "costPerQuantity": 432.22
     },
     {
@@ -707,7 +921,7 @@
       "item": "Restylane Lift",
       "quantity": 2,
       "unit": "un.",
-      "purchaseValue": 886.66,
+      "purchasePrice": 886.66,
       "costPerQuantity": 443.33
     },
     {
@@ -715,7 +929,7 @@
       "item": "L-Cartinina 600mg",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 77.0,
+      "purchasePrice": 77,
       "costPerQuantity": 7.7
     },
     {
@@ -723,7 +937,7 @@
       "item": "EGF 1% + IGF 1%",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 57.1,
+      "purchasePrice": 57.1,
       "costPerQuantity": 5.71
     },
     {
@@ -731,7 +945,7 @@
       "item": "Cooper Peptídeo 10mg",
       "quantity": 20,
       "unit": "un.",
-      "purchaseValue": 97.4,
+      "purchasePrice": 97.4,
       "costPerQuantity": 4.87
     },
     {
@@ -739,7 +953,7 @@
       "item": "Vitamina B3 (niacinamida)",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 39.0,
+      "purchasePrice": 39,
       "costPerQuantity": 3.9
     },
     {
@@ -747,7 +961,7 @@
       "item": "L-Prolina 500mg",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 84.1,
+      "purchasePrice": 84.1,
       "costPerQuantity": 8.41
     },
     {
@@ -755,7 +969,7 @@
       "item": "L-Metionina 100mg",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 45.0,
+      "purchasePrice": 45,
       "costPerQuantity": 4.5
     },
     {
@@ -763,7 +977,7 @@
       "item": "EGF 1% + IGF 1% + TGFB3 1%",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 57.1,
+      "purchasePrice": 57.1,
       "costPerQuantity": 5.71
     },
     {
@@ -771,15 +985,15 @@
       "item": "Minoxidil 5%",
       "quantity": 20,
       "unit": "un.",
-      "purchaseValue": 114.0,
+      "purchasePrice": 114,
       "costPerQuantity": 5.7
     },
     {
       "id": 16,
       "item": "Biotina 10mg",
-      "quantity": 10,
-      "unit": "un.",
-      "purchaseValue": 44.4,
+      "quantity": 5,
+      "unit": "mL",
+      "purchasePrice": 44.4,
       "costPerQuantity": 4.44
     },
     {
@@ -787,7 +1001,7 @@
       "item": "Ac. Alfalipólico 300mg",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 116.25,
+      "purchasePrice": 116.25,
       "costPerQuantity": 11.63
     },
     {
@@ -795,7 +1009,7 @@
       "item": "CoQ10 100mg",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 193.76,
+      "purchasePrice": 193.76,
       "costPerQuantity": 19.38
     },
     {
@@ -803,7 +1017,7 @@
       "item": "Luva de Vinil",
       "quantity": 1000,
       "unit": "un.",
-      "purchaseValue": 170.82,
+      "purchasePrice": 170.82,
       "costPerQuantity": 0.17
     },
     {
@@ -811,7 +1025,7 @@
       "item": "Agulha Lebel Mesodérmica 0,23x4mm",
       "quantity": 100,
       "unit": "un.",
-      "purchaseValue": 126.78,
+      "purchasePrice": 126.78,
       "costPerQuantity": 1.27
     },
     {
@@ -819,7 +1033,7 @@
       "item": "Lidocaina 2% + Epinefrina 1:100",
       "quantity": 50,
       "unit": "un.",
-      "purchaseValue": 243.55,
+      "purchasePrice": 243.55,
       "costPerQuantity": 4.87
     },
     {
@@ -827,7 +1041,7 @@
       "item": "Luva Cirúrgicas",
       "quantity": 2,
       "unit": "un.",
-      "purchaseValue": 9.86,
+      "purchasePrice": 9.86,
       "costPerQuantity": 4.93
     },
     {
@@ -835,7 +1049,7 @@
       "item": "Fita Cirúrgica Microporosa",
       "quantity": 6,
       "unit": "un.",
-      "purchaseValue": 43.07,
+      "purchasePrice": 43.07,
       "costPerQuantity": 7.18
     },
     {
@@ -843,7 +1057,7 @@
       "item": "Soro Fisiológico 0,9%",
       "quantity": 100,
       "unit": "un.",
-      "purchaseValue": 86.21,
+      "purchasePrice": 86.21,
       "costPerQuantity": 0.86
     },
     {
@@ -851,7 +1065,7 @@
       "item": "Fio Mononylon 4-0",
       "quantity": 7,
       "unit": "un.",
-      "purchaseValue": 15.75,
+      "purchasePrice": 15.75,
       "costPerQuantity": 2.25
     },
     {
@@ -859,7 +1073,7 @@
       "item": "Punch 4mm",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 154.0,
+      "purchasePrice": 154,
       "costPerQuantity": 15.4
     },
     {
@@ -867,7 +1081,7 @@
       "item": "Bisturi Descartável",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 21.0,
+      "purchasePrice": 21,
       "costPerQuantity": 2.1
     },
     {
@@ -875,7 +1089,7 @@
       "item": "Rioex Clorexina Aquosa",
       "quantity": 1000,
       "unit": "mL",
-      "purchaseValue": 57.39,
+      "purchasePrice": 57.39,
       "costPerQuantity": 0.06
     },
     {
@@ -883,7 +1097,7 @@
       "item": "Vitamina D3 600ui",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 202.4,
+      "purchasePrice": 202.4,
       "costPerQuantity": 20.24
     },
     {
@@ -891,7 +1105,7 @@
       "item": "Metilcobalamina 2500mcg",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 251.9,
+      "purchasePrice": 251.9,
       "costPerQuantity": 25.19
     },
     {
@@ -899,7 +1113,7 @@
       "item": "Vitamina B6 (Piridoxina)",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 42.9,
+      "purchasePrice": 42.9,
       "costPerQuantity": 4.29
     },
     {
@@ -907,7 +1121,7 @@
       "item": "D-Pantenol 40mg",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 36.4,
+      "purchasePrice": 36.4,
       "costPerQuantity": 3.64
     },
     {
@@ -915,7 +1129,7 @@
       "item": "L-Taurina 10%",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 38.1,
+      "purchasePrice": 38.1,
       "costPerQuantity": 3.81
     },
     {
@@ -923,7 +1137,7 @@
       "item": "IGF 1% + BFGF 1% + VEGF 1% + Cooper Peptídeo 1%",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 62.7,
+      "purchasePrice": 62.7,
       "costPerQuantity": 6.27
     },
     {
@@ -931,7 +1145,7 @@
       "item": "Dimetilsulfóxido 99,99%",
       "quantity": 10,
       "unit": "un.",
-      "purchaseValue": 39.4,
+      "purchasePrice": 39.4,
       "costPerQuantity": 3.94
     },
     {
@@ -939,7 +1153,7 @@
       "item": "Kit Sutura Descartável",
       "quantity": 2,
       "unit": "un.",
-      "purchaseValue": 172.84,
+      "purchasePrice": 172.84,
       "costPerQuantity": 86.42
     },
     {
@@ -947,7 +1161,7 @@
       "item": "Gase Estéril Fio 13",
       "quantity": 100,
       "unit": "un.",
-      "purchaseValue": 133.74,
+      "purchasePrice": 133.74,
       "costPerQuantity": 1.34
     },
     {
@@ -955,7 +1169,7 @@
       "item": "Gase Não Estéril",
       "quantity": 200,
       "unit": "un.",
-      "purchaseValue": 78.52,
+      "purchasePrice": 78.52,
       "costPerQuantity": 0.39
     },
     {
@@ -963,7 +1177,7 @@
       "item": "Sacola de Papel",
       "quantity": 100,
       "unit": "un.",
-      "purchaseValue": 870.0,
+      "purchasePrice": 870,
       "costPerQuantity": 8.7
     },
     {
@@ -971,7 +1185,7 @@
       "item": "Papel Timbrado",
       "quantity": 500,
       "unit": "un.",
-      "purchaseValue": 250.0,
+      "purchasePrice": 250,
       "costPerQuantity": 0.5
     },
     {
@@ -979,7 +1193,7 @@
       "item": "Envelope",
       "quantity": 100,
       "unit": "un.",
-      "purchaseValue": 105.0,
+      "purchasePrice": 105,
       "costPerQuantity": 1.05
     },
     {
@@ -987,7 +1201,7 @@
       "item": "Cartão Fidelidade",
       "quantity": 50,
       "unit": "un.",
-      "purchaseValue": 385.0,
+      "purchasePrice": 385,
       "costPerQuantity": 7.7
     },
     {
@@ -995,7 +1209,7 @@
       "item": "Anestésico Tópico (Dermomax)",
       "quantity": 80,
       "unit": "g",
-      "purchaseValue": 62.46,
+      "purchasePrice": 62.46,
       "costPerQuantity": 0.78
     },
     {
@@ -1003,7 +1217,7 @@
       "item": "Flyers",
       "quantity": 700,
       "unit": "un.",
-      "purchaseValue": 321.34,
+      "purchasePrice": 321.34,
       "costPerQuantity": 0.46
     },
     {
@@ -1011,7 +1225,7 @@
       "item": "Uréia 20%",
       "quantity": 30,
       "unit": "mL",
-      "purchaseValue": 49.9,
+      "purchasePrice": 49.9,
       "costPerQuantity": 1.66
     },
     {
@@ -1019,7 +1233,7 @@
       "item": "Ácido Retinoico 8%",
       "quantity": 30,
       "unit": "g",
-      "purchaseValue": 93.0,
+      "purchasePrice": 93,
       "costPerQuantity": 3.1
     },
     {
@@ -1027,7 +1241,7 @@
       "item": "Alcool 70%",
       "quantity": 5000,
       "unit": "mL",
-      "purchaseValue": 65.69,
+      "purchasePrice": 65.69,
       "costPerQuantity": 0.01
     },
     {
@@ -1035,7 +1249,7 @@
       "item": "Cotonetes De Maquiagem",
       "quantity": 80,
       "unit": "un.",
-      "purchaseValue": 11.04,
+      "purchasePrice": 11.04,
       "costPerQuantity": 0.14
     },
     {
@@ -1043,7 +1257,7 @@
       "item": "ATA 30%",
       "quantity": 30,
       "unit": "mL",
-      "purchaseValue": 10.3,
+      "purchasePrice": 10.3,
       "costPerQuantity": 0.34
     },
     {
@@ -1051,7 +1265,7 @@
       "item": "Cromóforo Tópico",
       "quantity": 30,
       "unit": "g",
-      "purchaseValue": 43.25,
+      "purchasePrice": 43.25,
       "costPerQuantity": 1.44
     },
     {
@@ -1059,7 +1273,7 @@
       "item": "Agulha Infiltração 40x12mm 18G",
       "quantity": 100,
       "unit": "un.",
-      "purchaseValue": 10.49,
+      "purchasePrice": 10.49,
       "costPerQuantity": 0.1
     },
     {
@@ -1067,7 +1281,7 @@
       "item": "Triancinolona 20mg/mL",
       "quantity": 5,
       "unit": "mL",
-      "purchaseValue": 132.49,
+      "purchasePrice": 132.49,
       "costPerQuantity": 26.5
     },
     {
@@ -1075,7 +1289,7 @@
       "item": "Aluguel Ultraformer",
       "quantity": 6,
       "unit": "un.",
-      "purchaseValue": 1300.0,
+      "purchasePrice": 1300,
       "costPerQuantity": 216.67
     },
     {
@@ -1083,7 +1297,7 @@
       "item": "Disparo Ultraformer",
       "quantity": 1,
       "unit": "un.",
-      "purchaseValue": 1.89,
+      "purchasePrice": 1.89,
       "costPerQuantity": 1.89
     },
     {
@@ -1091,7 +1305,7 @@
       "item": "Lavieen",
       "quantity": 6,
       "unit": "un.",
-      "purchaseValue": 1450.0,
+      "purchasePrice": 1450,
       "costPerQuantity": 241.67
     },
     {
@@ -1099,15 +1313,15 @@
       "item": "Técnica de Máquinas",
       "quantity": 6,
       "unit": "un.",
-      "purchaseValue": 300.0,
-      "costPerQuantity": 50.0
+      "purchasePrice": 300,
+      "costPerQuantity": 50
     },
     {
       "id": 57,
       "item": "Etherean",
       "quantity": 6,
       "unit": "un.",
-      "purchaseValue": 1400.0,
+      "purchasePrice": 1400,
       "costPerQuantity": 233.33
     },
     {
@@ -1115,31 +1329,31 @@
       "item": "Melora C Monoderma",
       "quantity": 1,
       "unit": "un.",
-      "purchaseValue": 230.0,
-      "costPerQuantity": 230.0
+      "purchasePrice": 230,
+      "costPerQuantity": 230
     },
     {
       "id": 59,
       "item": "Firmalize AOX",
       "quantity": 1,
       "unit": "un.",
-      "purchaseValue": 150.0,
-      "costPerQuantity": 150.0
+      "purchasePrice": 150,
+      "costPerQuantity": 150
     },
     {
       "id": 60,
       "item": "Heliomax Claro",
       "quantity": 1,
       "unit": "un.",
-      "purchaseValue": 60.0,
-      "costPerQuantity": 60.0
+      "purchasePrice": 60,
+      "costPerQuantity": 60
     },
     {
       "id": 61,
       "item": "Tirzepatida 2,5mg",
       "quantity": 1,
       "unit": "un.",
-      "purchaseValue": 1728.64,
+      "purchasePrice": 1728.64,
       "costPerQuantity": 1728.64
     },
     {
@@ -1147,15 +1361,15 @@
       "item": "Tirzepatida 5mg",
       "quantity": 1,
       "unit": "un.",
-      "purchaseValue": 2161.0,
-      "costPerQuantity": 2161.0
+      "purchasePrice": 2161,
+      "costPerQuantity": 2161
     },
     {
       "id": 63,
       "item": "Eletrodo Pads para Tenz",
       "quantity": 30,
       "unit": "un.",
-      "purchaseValue": 60.47,
+      "purchasePrice": 60.47,
       "costPerQuantity": 2.02
     },
     {
@@ -1163,62 +1377,104 @@
       "item": "Ponteira Íntima",
       "quantity": 1,
       "unit": "un.",
-      "purchaseValue": 150.0,
-      "costPerQuantity": 150.0
+      "purchasePrice": 150,
+      "costPerQuantity": 150
     },
     {
       "id": 65,
       "item": "Ponteira Extra",
       "quantity": 1,
       "unit": "un.",
-      "purchaseValue": 150.0,
-      "costPerQuantity": 150.0
+      "purchasePrice": 150,
+      "costPerQuantity": 150
+    },
+    {
+      "{\"item\":\"Material\",\"purchasePrice\":10.3,\"quantity\":1,\"unit\":\"un.\"}": "",
+      "id": 66
+    },
+    {
+      "item": "AA Primeiro Item",
+      "purchasePrice": 10.3,
+      "quantity": 30,
+      "unit": "un.",
+      "id": 67
+    },
+    {
+      "item": "aaa",
+      "purchasePrice": 10.3,
+      "quantity": 6,
+      "unit": "un.",
+      "id": 68
+    },
+    {
+      "item": "aaa",
+      "purchasePrice": 10.3,
+      "quantity": 6,
+      "unit": "mL",
+      "id": 69
     }
   ],
-
   "products": [
     {
       "id": 1,
       "item": "Shampoo",
       "quantity": 120,
       "unit": "mL",
-      "purchaseValue": 56.00
+      "purchasePrice": 56,
+      "currentPrice": 0
     },
     {
       "id": 2,
       "item": "Condicionador",
       "quantity": 120,
       "unit": "mL",
-      "purchaseValue": 45.50
+      "purchasePrice": 45.5,
+      "currentPrice": 0
     },
     {
       "id": 3,
       "item": "Máscara capilar",
       "quantity": 80,
       "unit": "g",
-      "purchaseValue": 60.00
+      "purchasePrice": 60,
+      "currentPrice": 0
     },
     {
       "id": 4,
       "item": "Óleo capilar",
       "quantity": 30,
       "unit": "mL",
-      "purchaseValue": 42.00
+      "purchasePrice": 42,
+      "currentPrice": 0
     },
     {
       "id": 5,
       "item": "Escova de LED",
       "quantity": 1,
       "unit": "un.",
-      "purchaseValue": 50.83
+      "purchasePrice": 50.83,
+      "currentPrice": 0
     },
     {
       "id": 6,
       "item": "Escova massageadora",
       "quantity": 1,
       "unit": "un.",
-      "purchaseValue": 2.60
+      "purchasePrice": 2.6
+    }
+  ],
+  "procedures": [
+    {
+      "id": 1,
+      "item": "Consulta Médica",
+      "costTotal": 18.45,
+      "currentPrice": 1260
+    },
+    {
+      "id": 2,
+      "item": "Consultoria",
+      "costTotal": 18.45,
+      "currentPrice": 720
     }
   ]
-
 }
