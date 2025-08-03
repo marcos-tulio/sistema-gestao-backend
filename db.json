@@ -874,7 +874,7 @@
       "quantity": 100,
       "unit": "un.",
       "purchasePrice": 14.67,
-      "costPerQuantity": 0.15
+      "costPerQuantity": 0.1467
     },
     {
       "id": 2,
@@ -898,7 +898,7 @@
       "quantity": 8,
       "unit": "mL",
       "purchasePrice": 1902.22,
-      "costPerQuantity": 237.78
+      "costPerQuantity": 237.7775
     },
     {
       "id": 5,
@@ -994,7 +994,7 @@
       "quantity": 5,
       "unit": "mL",
       "purchasePrice": 44.4,
-      "costPerQuantity": 4.44
+      "costPerQuantity": 8.88
     },
     {
       "id": 17,
@@ -1002,7 +1002,7 @@
       "quantity": 10,
       "unit": "un.",
       "purchasePrice": 116.25,
-      "costPerQuantity": 11.63
+      "costPerQuantity": 11.625
     },
     {
       "id": 18,
@@ -1010,7 +1010,7 @@
       "quantity": 10,
       "unit": "un.",
       "purchasePrice": 193.76,
-      "costPerQuantity": 19.38
+      "costPerQuantity": 19.376
     },
     {
       "id": 19,
@@ -1026,7 +1026,7 @@
       "quantity": 100,
       "unit": "un.",
       "purchasePrice": 126.78,
-      "costPerQuantity": 1.27
+      "costPerQuantity": 1.2678
     },
     {
       "id": 21,
@@ -1090,7 +1090,7 @@
       "quantity": 1000,
       "unit": "mL",
       "purchasePrice": 57.39,
-      "costPerQuantity": 0.06
+      "costPerQuantity": 0.0574
     },
     {
       "id": 29,
@@ -1210,7 +1210,7 @@
       "quantity": 80,
       "unit": "g",
       "purchasePrice": 62.46,
-      "costPerQuantity": 0.78
+      "costPerQuantity": 0.7808
     },
     {
       "id": 44,
@@ -1242,7 +1242,7 @@
       "quantity": 5000,
       "unit": "mL",
       "purchasePrice": 65.69,
-      "costPerQuantity": 0.01
+      "costPerQuantity": 0.0131
     },
     {
       "id": 48,
@@ -1250,15 +1250,15 @@
       "quantity": 80,
       "unit": "un.",
       "purchasePrice": 11.04,
-      "costPerQuantity": 0.14
+      "costPerQuantity": 0.138
     },
     {
       "id": 49,
       "item": "ATA 30%",
       "quantity": 30,
-      "unit": "mL",
+      "unit": "un.",
       "purchasePrice": 10.3,
-      "costPerQuantity": 0.34
+      "costPerQuantity": 0.3433
     },
     {
       "id": 50,
@@ -1274,7 +1274,7 @@
       "quantity": 100,
       "unit": "un.",
       "purchasePrice": 10.49,
-      "costPerQuantity": 0.1
+      "costPerQuantity": 0.1049
     },
     {
       "id": 52,
@@ -1287,10 +1287,10 @@
     {
       "id": 53,
       "item": "Aluguel Ultraformer",
-      "quantity": 6,
+      "quantity": 10,
       "unit": "un.",
       "purchasePrice": 1300,
-      "costPerQuantity": 216.67
+      "costPerQuantity": 130
     },
     {
       "id": 54,
@@ -1322,7 +1322,7 @@
       "quantity": 6,
       "unit": "un.",
       "purchasePrice": 1400,
-      "costPerQuantity": 233.33
+      "costPerQuantity": 233.3333
     },
     {
       "id": 58,
@@ -1370,7 +1370,7 @@
       "quantity": 30,
       "unit": "un.",
       "purchasePrice": 60.47,
-      "costPerQuantity": 2.02
+      "costPerQuantity": 2.0157
     },
     {
       "id": 64,
@@ -1389,29 +1389,12 @@
       "costPerQuantity": 150
     },
     {
-      "{\"item\":\"Material\",\"purchasePrice\":10.3,\"quantity\":1,\"unit\":\"un.\"}": "",
-      "id": 66
-    },
-    {
-      "item": "AA Primeiro Item",
-      "purchasePrice": 10.3,
-      "quantity": 30,
-      "unit": "un.",
-      "id": 67
-    },
-    {
-      "item": "aaa",
-      "purchasePrice": 10.3,
-      "quantity": 6,
-      "unit": "un.",
-      "id": 68
-    },
-    {
       "item": "aaa",
       "purchasePrice": 10.3,
       "quantity": 6,
       "unit": "mL",
-      "id": 69
+      "id": 68,
+      "costPerQuantity": 1.7167
     }
   ],
   "products": [
@@ -1421,7 +1404,7 @@
       "quantity": 120,
       "unit": "mL",
       "purchasePrice": 56,
-      "currentPrice": 0
+      "currentPrice": 150
     },
     {
       "id": 2,
@@ -1445,7 +1428,7 @@
       "quantity": 30,
       "unit": "mL",
       "purchasePrice": 42,
-      "currentPrice": 0
+      "currentPrice": 45
     },
     {
       "id": 5,
@@ -1460,7 +1443,9 @@
       "item": "Escova massageadora",
       "quantity": 1,
       "unit": "un.",
-      "purchasePrice": 2.6
+      "purchasePrice": 2.6,
+      "costPerQuantity": 5,
+      "currentPrice": 5
     }
   ],
   "procedures": [

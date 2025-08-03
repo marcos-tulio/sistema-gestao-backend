@@ -13,6 +13,28 @@ server.use(cors())
 
 server.use(middlewares)
 
+server.use(jsonServer.bodyParser)
+
+// Middleware para PATCH e PUT em /materials
+server.use((req, res, next) => {
+  if (
+    ['PUT', 'PATCH'].includes(req.method) &&
+    req.path.startsWith('/materials')
+  ) {
+    const body = req.body
+
+    const price = parseFloat(body.purchasePrice)
+    const qty   = parseFloat(body.quantity)
+
+    // Só calcula se ambos os campos forem válidos
+    if (!isNaN(price) && !isNaN(qty) && qty > 0) {
+      body.costPerQuantity = +(price / qty).toFixed(4)
+    }
+  }
+
+  next()
+})
+
 // Retorna um item específico
 server.get("/financial/types/:id", (req, res) => {
     const db = JSON.parse(fs.readFileSync("db.json"))
