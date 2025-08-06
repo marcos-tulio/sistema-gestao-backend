@@ -1412,7 +1412,7 @@
       "quantity": 120,
       "unit": "mL",
       "purchasePrice": 45.5,
-      "currentPrice": 0
+      "currentPrice": 50
     },
     {
       "id": 3,
@@ -1420,7 +1420,7 @@
       "quantity": 80,
       "unit": "g",
       "purchasePrice": 60,
-      "currentPrice": 0
+      "currentPrice": 65
     },
     {
       "id": 4,
@@ -1436,7 +1436,7 @@
       "quantity": 1,
       "unit": "un.",
       "purchasePrice": 50.83,
-      "currentPrice": 0
+      "currentPrice": 55
     },
     {
       "id": 6,
@@ -1453,13 +1453,14 @@
       "id": 1,
       "item": "Consulta Médica",
       "costTotal": 18.45,
-      "currentPrice": 1260
-    },
-    {
-      "id": 2,
-      "item": "Consultoria",
-      "costTotal": 18.45,
-      "currentPrice": 720
+      "materials": [
+        {
+          "id": 1,
+          "item": "Agulha hipodérmica 30x0,70 22g (Apiração)",
+          "costPerQuantity": 0.1467,
+          "quantity": 10
+        }
+      ]
     }
   ]
 }
