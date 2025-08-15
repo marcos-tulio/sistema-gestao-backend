@@ -28,7 +28,7 @@ server.use((req, res, next) => {
 
     // Só calcula se ambos os campos forem válidos
     if (!isNaN(price) && !isNaN(qty) && qty > 0) {
-      body.costPerQuantity = +(price / qty).toFixed(4)
+      body.unitCost = +(price / qty).toFixed(4)
     }
   }
 
