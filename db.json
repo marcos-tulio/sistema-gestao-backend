@@ -1713,24 +1713,51 @@
           "materialsCost": 18.45
         },
         "current": {
-          "price": 150,
-          "comission": 10,
-          "taxes": 1.5,
-          "cardTax": 1.5,
           "timeSpent": 60,
-          "includesDirectLabor": true,
-          "includesFixedExpenses": false,
-          "fixedExpensesPercentual": false
+
+          "price"    : 150,
+          "comission": 10,
+          "taxes"    : 1.5,
+          "cardTax"  : 1.5,
+
+          "includesDirectLabor"    : true,
+          "includesFixedExpenses"  : false,
+          "fixedExpensesPercentual": false,
+          
+          "directLaborExpanses": 0,
+          "variableExpenses"   : 0,
+          "fixedExpenses"      : 3.75,
+          "totalExpenses"      : 3.75,
+
+          "contributionMargin" : 125.20,
+          "contributionMarginPercentual": 83.4666,
+
+          "profitability"      : 125.20,
+          "profitabilityPercentual": 83.4666
         },
+
         "new": {
-          "price": 180,
-          "comission": 10,
-          "taxes": 1.5,
-          "cardTax": 1.5,
           "timeSpent": 60,
-          "includesDirectLabor": true,
-          "includesFixedExpenses": false,
-          "fixedExpensesPercentual": false
+
+          "price"    : 150,
+          "comission": 10,
+          "taxes"    : 1.5,
+          "cardTax"  : 1.5,
+
+          "includesDirectLabor"    : true,
+          "includesFixedExpenses"  : false,
+          "fixedExpensesPercentual": false,
+          
+          "directLaborExpanses": 0,
+          "variableExpenses"   : 0,
+          "fixedExpenses"      : 3.75,
+          "totalExpenses"      : 3.75,
+
+          "contributionMargin" : 125.20,
+          "contributionMarginPercentual": 83.4666,
+          
+          "profitability"      : 125.20,
+          "profitabilityPercentual": 83.4666
         }
       }
     ]
