@@ -3,8 +3,9 @@
     "types": [
       {
         "id": 1,
+        "name": "revenue",
         "title": "Faturamento",
-        "input": true,
+        "isIncome": true,
         "categories": [
           {
             "id": 1,
@@ -73,14 +74,16 @@
               "nov": 150000,
               "dec": 150000
             },
-            "annual": 1331175.59
+            "annual": 1331175.59,
+            "annualAverage": 133117.56
           }
         ]
       },
       {
         "id": 2,
+        "name": "variableExpenses",
         "title": "Custos e despesas variáveis",
-        "input": false,
+        "isIncome": false,
         "categories": [
           {
             "id": 1,
@@ -202,7 +205,7 @@
           },
           {
             "id": 2,
-            "title": "Sálarios Diretos",
+            "title": "Salários Diretos",
             "order": 2,
             "items": [
               {
@@ -290,14 +293,16 @@
               "nov": 75264.55,
               "dec": 79013.37
             },
-            "annual": 653463.27
+            "annual": 653463.27,
+            "annualAverage": 65346.33
           }
         ]
       },
       {
         "id": 3,
+        "name": "fixedExpenses",
         "title": "Despesas Fixas",
-        "input": false,
+        "isIncome": false,
         "categories": [
           {
             "id": 1,
@@ -702,14 +707,16 @@
               "nov": 75264.55,
               "dec": 79013.37
             },
-            "annual": 653463.27
+            "annual": 653463.27,
+            "annualAverage": 65346.33
           }
         ]
       },
       {
         "id": 4,
+        "name": "othersExpenses",
         "title": "Investimentos",
-        "input": false,
+        "isIncome": false,
         "categories": [
           {
             "id": 1,
@@ -789,13 +796,14 @@
               "nov": 17949,
               "dec": 14949
             },
-            "annual": 192331.57
+            "annual": 192331.57,
+            "annualAverage": 19233.15
           }
         ]
       }
     ],
     "total": {
-      "input": [
+      "incomes": [
         {
           "year": 2025,
           "monthly": {
@@ -815,7 +823,7 @@
           "annual": 1331175.59
         }
       ],
-      "output": [
+      "expenses": [
         {
           "year": 2025,
           "monthly": {
@@ -1394,7 +1402,7 @@
       "id": 1,
       "name": "Shampoo",
       "quantity": 120,
-      "unit": "mL",
+      "unit": "un.",
       "purchasePrice": 56,
       "currentPrice": 150
     },
@@ -1402,7 +1410,7 @@
       "id": 2,
       "name": "Condicionador",
       "quantity": 120,
-      "unit": "mL",
+      "unit": "un.",
       "purchasePrice": 45.5,
       "currentPrice": 50
     },
@@ -1445,7 +1453,6 @@
       "id": 1,
       "name": "Consulta Médica",
       "materialsCost": 18.45,
-      "currentPrice": 350,
       "materials": [
         {
           "material": {
@@ -1456,34 +1463,11 @@
           "quantityUsed": 10,
           "totalCost": 14.67
         }
-      ]
+      ],
+      "currentPrice": 150
     },
     {
       "materials": [
-        {
-          "material": {
-            "id": 11,
-            "name": "Vitamina B3 (niacinamida)",
-            "quantity": 10,
-            "unit": "un.",
-            "purchasePrice": 39,
-            "unitCost": 3.9
-          },
-          "quantityUsed": 1,
-          "totalCost": 3.9
-        },
-        {
-          "material": {
-            "id": 19,
-            "name": "Luva de Vinil",
-            "quantity": 1000,
-            "unit": "un.",
-            "purchasePrice": 170.82,
-            "unitCost": 0.17
-          },
-          "quantityUsed": 1,
-          "totalCost": 0.17
-        },
         {
           "material": {
             "id": 51,
@@ -1559,28 +1543,57 @@
       ],
       "materialsCost": 0,
       "name": "Consulta de teste",
-      "currentPrice": 145,
       "id": 2
     },
     {
       "materials": [
         {
           "material": {
-            "id": 1,
-            "name": "Agulha hipodérmica 30x0,70 22g (Apiração)",
-            "quantity": 100,
+            "id": 49,
+            "name": "ATA 30%",
+            "quantity": 30,
             "unit": "un.",
-            "purchasePrice": 14.67,
-            "unitCost": 0.1467
+            "purchasePrice": 10.3,
+            "unitCost": 0.3433
           },
-          "quantityUsed": 5,
-          "totalCost": 0.7335
+          "quantityUsed": 40,
+          "totalCost": 13.732
         }
       ],
       "materialsCost": 0,
-      "name": "Consulta de teste 333",
-      "currentPrice": 145,
-      "id": 3
+      "name": "Procedimento de teste",
+      "id": 4
+    },
+    {
+      "materials": [
+        {
+          "material": {
+            "id": 30,
+            "name": "Metilcobalamina 2500mcg",
+            "quantity": 10,
+            "unit": "un.",
+            "purchasePrice": 251.9,
+            "unitCost": 25.19
+          },
+          "quantityUsed": 10,
+          "totalCost": 251.9
+        },
+        {
+          "material": {
+            "id": 51,
+            "name": "Agulha Infiltração 40x12mm 18G",
+            "quantity": 100,
+            "unit": "un.",
+            "purchasePrice": 10.49,
+            "unitCost": 0.1049
+          },
+          "quantityUsed": 5,
+          "totalCost": 0.5245
+        }
+      ],
+      "materialsCost": 0,
+      "name": "Consulta Médica 10",
+      "id": 5
     }
   ],
   "collaborators": [
@@ -1589,11 +1602,11 @@
       "name": "João da Silva",
       "profession": "Secretário",
       "owner": "p",
-      "mod": true,
+      "includesDirectLabor": true,
       "minutesWorked": 480,
-      "daysWorked": 25,
+      "daysWorked": 20,
       "totalMinutesWorked": 14400,
-      "modCost": 100.1,
+      "directLaborPerMinute": 100.1,
       "paymentAmount": 2000,
       "payment13": 166.66,
       "transportVoucher": 120,
@@ -1601,16 +1614,15 @@
       "healthInsurance": 80,
       "laborCosts": 25,
       "others": 10,
-      "totalCost": 10000,
-      "_init": null
+      "totalCost": 10000
     },
     {
       "name": "Zé da Manga",
       "profession": "Zelador",
-      "owner": "s",
-      "mod": true,
-      "minutesWorked": 360,
-      "daysWorked": 23,
+      "owner": "a",
+      "includesDirectLabor": false,
+      "minutesWorked": null,
+      "daysWorked": null,
       "id": 2,
       "paymentAmount": 1000,
       "transportVoucher": 0,
@@ -1618,15 +1630,14 @@
       "foodVoucher": 0,
       "healthInsurance": 0,
       "laborCosts": 0,
-      "others": 0,
-      "_init": null
+      "others": 0
     },
     {
-      "mod": false,
-      "minutesWorked": null,
-      "daysWorked": null,
+      "includesDirectLabor": true,
+      "minutesWorked": 720,
+      "daysWorked": 2,
       "owner": "s",
-      "name": "MC Zóio",
+      "name": "MC Zóio de Gato",
       "profession": "Diretor de finanças",
       "paymentAmount": 15000,
       "payment13": null,
@@ -1636,6 +1647,92 @@
       "laborCosts": null,
       "others": 1200,
       "id": 3
+    },
+    {
+      "includesDirectLabor": true,
+      "minutesWorked": 480,
+      "daysWorked": 20,
+      "owner": "p",
+      "name": "Zóio",
+      "profession": "Zelador",
+      "payment13": null,
+      "foodVoucher": null,
+      "laborCosts": null,
+      "others": null,
+      "paymentAmount": 2500,
+      "transportVoucher": null,
+      "healthInsurance": null,
+      "id": 4
     }
-  ]
+  ],
+  "pricing": {
+    "procedures": [
+      {
+        "id": 1,
+        "financialSummary": {
+          "revenue": {
+            "total": 1331175.59,
+            "average": 133117.56
+          },
+          "variableExpenses": {
+            "total": 1331175.59,
+            "average": 133117.56
+          },
+          "fixedExpenses": {
+            "total": 1331175.59,
+            "average": 133117.56
+          },
+          "othersExpenses": {
+            "total": 1331175.59,
+            "average": 133117.56
+          },
+          "directLaborPayments": {
+            "total": 45000,
+            "average": 2000,
+            "comment": "Custo com pagamentos dos funcionários com MOD"
+          },
+          "directLaborMinutes": {
+            "total": 15000,
+            "average": 10000,
+            "comment": "Tempo de trabalho dos funcionários com MOD"
+          },
+          "directLaborExpenses": {
+            "total": 3.35,
+            "average": 2.15,
+            "comment": "directLaborPayments / directLaborMinutes"
+          },
+          "revenueByDirectLaborMinutes": {
+            "total": 3.17,
+            "average": 3.17,
+            "comment": "revenue / directLaborMinutes.total"
+          }
+        },
+        "procedure": {
+          "id": 1,
+          "name": "Consulta Médica",
+          "materialsCost": 18.45
+        },
+        "current": {
+          "price": 150,
+          "comission": 10,
+          "taxes": 1.5,
+          "cardTax": 1.5,
+          "timeSpent": 60,
+          "includesDirectLabor": true,
+          "includesFixedExpenses": false,
+          "fixedExpensesPercentual": false
+        },
+        "new": {
+          "price": 180,
+          "comission": 10,
+          "taxes": 1.5,
+          "cardTax": 1.5,
+          "timeSpent": 60,
+          "includesDirectLabor": true,
+          "includesFixedExpenses": false,
+          "fixedExpensesPercentual": false
+        }
+      }
+    ]
+  }
 }
