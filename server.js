@@ -74,6 +74,21 @@ server.get("/pricing/procedures/:id", (req, res) => {
     else res.status(404).json({ error: "Not found" })
 })
 
+// Lista todos os procedimentos
+server.get("/pricing/products", (req, res) => {
+    const db = JSON.parse(fs.readFileSync("db.json"))
+    res.json(db.pricing?.products ?? [])
+})
+
+// Lista categorias de um procedimento específico
+server.get("/pricing/products/:id", (req, res) => {
+    const db = JSON.parse(fs.readFileSync("db.json"))
+    const id = parseInt(req.params.id)
+    const product = db.pricing?.products?.find(i => i.id === id)
+    if (product) res.json(product)
+    else res.status(404).json({ error: "Not found" })
+})
+
 server.use(router)
 server.listen(PORT, () => {
     console.log("JSON Server is running")

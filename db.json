@@ -1264,7 +1264,7 @@
       "id": 49,
       "name": "ATA 30%",
       "quantity": 30,
-      "unit": "un.",
+      "unit": "g",
       "purchasePrice": 10.3,
       "unitCost": 0.3433
     },
@@ -1403,32 +1403,28 @@
       "name": "Shampoo",
       "quantity": 120,
       "unit": "un.",
-      "purchasePrice": 56,
-      "currentPrice": 150
+      "purchasePrice": 56
     },
     {
       "id": 2,
       "name": "Condicionador",
       "quantity": 120,
       "unit": "un.",
-      "purchasePrice": 45.5,
-      "currentPrice": 50
+      "purchasePrice": 45.5
     },
     {
       "id": 3,
       "name": "Máscara capilar",
       "quantity": 80,
       "unit": "g",
-      "purchasePrice": 60,
-      "currentPrice": 65
+      "purchasePrice": 60
     },
     {
       "id": 4,
       "name": "Óleo capilar",
       "quantity": 30,
       "unit": "mL",
-      "purchasePrice": 42,
-      "currentPrice": 45
+      "purchasePrice": 42
     },
     {
       "id": 5,
@@ -1444,8 +1440,7 @@
       "quantity": 1,
       "unit": "un.",
       "purchasePrice": 2.6,
-      "unitCost": 5,
-      "currentPrice": 5
+      "unitCost": 5
     }
   ],
   "procedures": [
@@ -1714,49 +1709,117 @@
         },
         "current": {
           "timeSpent": 60,
-
-          "price"    : 150,
-          "comission": 10,
-          "taxes"    : 1.5,
-          "cardTax"  : 1.5,
-
-          "includesDirectLabor"    : true,
-          "includesFixedExpenses"  : false,
+          "price": 150,
+          "commission": 10,
+          "taxes": 1.5,
+          "cardTax": 1.5,
+          "includesDirectLabor": true,
+          "includesFixedExpenses": false,
           "fixedExpensesPercentual": false,
-          
           "directLaborExpanses": 0,
-          "variableExpenses"   : 0,
-          "fixedExpenses"      : 3.75,
-          "totalExpenses"      : 3.75,
-
-          "contributionMargin" : 125.20,
+          "variableExpenses": 0,
+          "fixedExpenses": 3.75,
+          "totalExpenses": 3.75,
+          "contributionMargin": 125.2,
           "contributionMarginPercentual": 83.4666,
-
-          "profitability"      : 125.20,
+          "profitability": 125.2,
           "profitabilityPercentual": 83.4666
         },
-
         "new": {
           "timeSpent": 60,
-
-          "price"    : 150,
-          "comission": 10,
-          "taxes"    : 1.5,
-          "cardTax"  : 1.5,
-
-          "includesDirectLabor"    : true,
-          "includesFixedExpenses"  : false,
+          "price": 150,
+          "commission": 10,
+          "taxes": 1.5,
+          "cardTax": 1.5,
+          "includesDirectLabor": true,
+          "includesFixedExpenses": false,
           "fixedExpensesPercentual": false,
-          
           "directLaborExpanses": 0,
-          "variableExpenses"   : 0,
-          "fixedExpenses"      : 3.75,
-          "totalExpenses"      : 3.75,
+          "variableExpenses": 0,
+          "fixedExpenses": 3.75,
+          "totalExpenses": 3.75,
+          "contributionMargin": 125.2,
+          "contributionMarginPercentual": 83.4666,
+          "profitability": 125.2,
+          "profitabilityPercentual": 83.4666
+        }
+      }
+    ],
+    "products": [
+      {
+        "id": 1,
+        "financialSummary": {
+          "revenue": {
+            "total": 1331175.59,
+            "average": 133117.56
+          },
+          "variableExpenses": {
+            "total": 1331175.59,
+            "average": 133117.56
+          },
+          "fixedExpenses": {
+            "total": 1331175.59,
+            "average": 133117.56
+          },
+          "othersExpenses": {
+            "total": 1331175.59,
+            "average": 133117.56
+          },
+          "directLaborPayments": {
+            "total": 45000,
+            "average": 2000,
+            "comment": "Custo com pagamentos dos funcionários com MOD"
+          },
+          "directLaborMinutes": {
+            "total": 15000,
+            "average": 10000,
+            "comment": "Tempo de trabalho dos funcionários com MOD"
+          },
+          "directLaborExpenses": {
+            "total": 3.35,
+            "average": 2.15,
+            "comment": "directLaborPayments / directLaborMinutes"
+          },
+          "revenueByDirectLaborMinutes": {
+            "total": 3.17,
+            "average": 3.17,
+            "comment": "revenue / directLaborMinutes.total"
+          }
+        },
+        "product": {
+          "id": 1,
+          "name": "Shampoo",
+          "quantity": 120,
+          "unit": "un.",
+          "purchasePrice": 56
+        },
+        "current": {
+          "price": 100,
+          "commission": 10,
+          "taxes": 1.5,
+          "cardTax": 1.5,
 
-          "contributionMargin" : 125.20,
+          "variableExpenses": 0,
+          "fixedExpenses": 3.75,
+          "totalExpenses": 3.75,
+
+          "contributionMargin": 125.2,
           "contributionMarginPercentual": 83.4666,
           
-          "profitability"      : 125.20,
+          "profitability": 125.2,
+          "profitabilityPercentual": 83.4666
+        },
+        "new": {
+          "price": 250,
+          "commission": 10,
+          "taxes": 1.5,
+          "cardTax": 1.5,
+          "variableExpenses": 0,
+          "fixedExpenses": 3.75,
+          "totalExpenses": 3.75,
+          "contributionMargin": 125.2,
+          "contributionMarginPercentual": 83.4666,
+          "profitability": 125.2,
           "profitabilityPercentual": 83.4666
         }
       }
