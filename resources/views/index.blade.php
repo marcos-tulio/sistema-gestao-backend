@@ -19,7 +19,7 @@
     @if ($manifest)
         {{-- Carrega os CSS gerados pelo Vite --}}
         @foreach ($cssFiles as $css)
-            <link rel="stylesheet" href="{{ secure_asset('frontend/' . $css) }}">
+            <link rel="stylesheet" href="{{ asset('frontend/' . $css) }}">
         @endforeach
     @endif
 </head>
@@ -28,7 +28,7 @@
 
     @if ($manifest && $jsFile)
         {{-- Carrega o JS gerado pelo Vite --}}
-        <script type="module" src="{{ secure_asset('frontend/' . $jsFile) }}"></script>
+        <script type="module" src="{{ asset('frontend/' . $jsFile) }}"></script>
     @endif
 </body>
 </html>
