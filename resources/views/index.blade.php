@@ -17,9 +17,8 @@
     @endphp
 
     @if ($manifest)
-        {{-- Carrega os CSS gerados pelo Vite --}}
         @foreach ($cssFiles as $css)
-            <link rel="stylesheet" href="{{ asset('frontend/' . $css) }}">
+            <link rel="stylesheet" href="/frontend/{{ $css }}">
         @endforeach
     @endif
 </head>
@@ -27,8 +26,7 @@
     <div id="app"></div>
 
     @if ($manifest && $jsFile)
-        {{-- Carrega o JS gerado pelo Vite --}}
-        <script type="module" src="{{ asset('frontend/' . $jsFile) }}"></script>
+        <script type="module" src="/frontend/{{ $jsFile }}"></script>
     @endif
 </body>
 </html>
