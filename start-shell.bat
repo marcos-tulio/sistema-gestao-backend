@@ -1,1 +1,1 @@
-docker-compose --env-file .env.dev run --rm backend sh
+docker exec -it laravel-app bash

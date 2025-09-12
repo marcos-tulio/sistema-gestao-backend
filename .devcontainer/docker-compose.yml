@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: root
+    volumes:
+      - ../src:/var/www/html:cached
+      - /var/www/html/vendor   # volume anônimo para o vendor dentro do container
+      
+    ports:
+      - "3003:8000"
+    depends_on:
+      - pgsql
+    #command: tail -f /dev/null
+    command: sh -c "composer install && php artisan serve --host=0.0.0.0 --port=8000"
+    #command: sh -c "php artisan serve --host=0.0.0.0 --port=8000"
+
+  pgsql:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgsql-data:/var/lib/postgresql/data
+
+volumes:
+  pgsql-data:
