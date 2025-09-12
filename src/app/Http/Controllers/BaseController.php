@@ -4,14 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Schema;
 
 abstract class BaseController extends Controller {
 
     abstract protected function getModel(): string;
 
-    abstract protected function getRules(): array;
+    protected function getRules(): array {
+        return [];
+    }
 
-    abstract protected function getValidator(Request $request): array;
+    protected function getSorts(): array {
+        return ['id'];
+    }
+
+    protected function getValidator(Request $request): array {
+        return $request->validate($this->getRules());
+    }
 
     public function destroy(string $id): JsonResponse {
         $record = $this->getModel()::find($id);
@@ -24,8 +33,46 @@ abstract class BaseController extends Controller {
         return response()->json(['message' => 'Registro deletado com sucesso.'], 200);
     }
 
-    public function index() {
-        return $this->getModel()::all();
+    public function index(Request $request) {
+        $modelClass = $this->getModel();
+        $query = $modelClass::query();
+        $table = (new $modelClass)->getTable();
+
+        foreach ($request->all() as $param => $value) {
+            if (in_array($param, ['_sort', '_order', '_page', '_limit']))
+                continue;
+
+            if (str_ends_with($param, '_like')) {
+                $column = str_replace('_like', '', $param);
+                if (Schema::hasColumn($table, $column)) {
+                    $query->where($column, 'like', '%' . $value . '%');
+                }
+            } else if (Schema::hasColumn($table, $param)) {
+                $query->where($param, $value);
+            }
+        }
+
+        $allowedSorts = $this->getSorts();
+        $sort = $request->get('_sort', 'id');
+        $order = strtolower($request->get('_order', 'asc'));
+
+        if (in_array($sort, $allowedSorts)) {
+            if (!in_array($order, ['asc', 'desc'])) $order = 'asc';
+            $query->orderBy($sort, $order);
+        }
+
+        $page  = (int) $request->get('_page', 1);
+        if ($page < 1) $page = 1;
+
+        $limit = (int) $request->get('_limit', 50);
+        if ($limit < 1 || $limit > 100) $limit = 15;
+
+        $total = $query->count();
+        $records = $query->forPage($page, $limit)->get();
+
+        return response()
+            ->json($records)
+            ->header('X-Total-Count', $total);
     }
 
     public function show(string $id) {

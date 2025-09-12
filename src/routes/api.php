@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\MaterialController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*Route::get('/user', function (Request $request) {
@@ -12,7 +12,7 @@ Route::get('/status', function () {
     return response()->json(['status' => 'ok']);
 });
 
-Route::get('/user', function () {
+Route::get('/usuario', function () {
     return response()->json([
         "id" => 1,
         "name" => "Lucas",
@@ -25,4 +25,6 @@ Route::get('/user', function () {
     ]);
 });
 
-Route::apiResource('/materials', MaterialController::class);
+Route::apiResource('/materiais', MaterialController::class);
+
+Route::apiResource('/produtos', ProductController::class);

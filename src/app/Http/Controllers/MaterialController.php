@@ -25,4 +25,8 @@ class MaterialController extends BaseController {
         $validated['unitCost'] = bcdiv($validated['purchasePrice'], $validated['quantity'], 8);
         return $validated;
     }
+
+    protected function getSorts(): array {
+        return ['id', 'name', 'quantity', 'unit', 'purchasePrice', 'unitCost'];
+    }
 }

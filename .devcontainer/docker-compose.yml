@@ -8,10 +8,10 @@ services:
     user: root
     volumes:
       - ../src:/var/www/html:cached
-      - /var/www/html/vendor   # volume anônimo para o vendor dentro do container
-      
+      - /var/www/html/vendor # volume anônimo para o vendor dentro do container
+
     ports:
-      - "3003:8000"
+      - "80:8000"
     depends_on:
       - pgsql
     #command: tail -f /dev/null
