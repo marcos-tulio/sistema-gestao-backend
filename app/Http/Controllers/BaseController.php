@@ -5,10 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 abstract class BaseController extends Controller {
 
     abstract protected function getModel(): string;
+
+    // Relações a serem carregadas (padrão vazio)
+    protected function getRelations(): array {
+        return [];
+    }
+
+    // Resource opcional
+    protected function getResource(): ?string {
+        return null;
+    }
 
     protected function getRules(): array {
         return [];
@@ -20,6 +31,27 @@ abstract class BaseController extends Controller {
 
     protected function getValidator(Request $request): array {
         return $request->validate($this->getRules());
+    }
+
+    protected function transformCollection($records) {
+        $resource = $this->getResource();
+        return $resource ? $resource::collection($records) : $records;
+    }
+
+    protected function transformRecord($record) {
+        $resource = $this->getResource();
+        return $resource ? new $resource($record) : $record;
+    }
+
+    protected function storeMiddleware($validated) {
+        $record = $this->getModel()::create($validated);
+        return $record;
+    }
+
+    protected function updateMiddleware($record, $validated) {
+        $record->fill($validated);
+        $record->save();
+        return $record;
     }
 
     public function destroy(string $id): JsonResponse {
@@ -44,9 +76,15 @@ abstract class BaseController extends Controller {
 
             if (str_ends_with($param, '_like')) {
                 $column = str_replace('_like', '', $param);
-                if (Schema::hasColumn($table, $column)) {
+
+                /*if (Schema::hasColumn($table, $column))
+                    $query->where($column, 'like', '%' . $value . '%');*/
+
+                if ($column === 'name')
+                    $query->where('slug', 'like', '%' . Str::slug($value) . '%');
+
+                else if (Schema::hasColumn($table, $column))
                     $query->where($column, 'like', '%' . $value . '%');
-                }
             } else if (Schema::hasColumn($table, $param)) {
                 $query->where($param, $value);
             }
@@ -71,17 +109,20 @@ abstract class BaseController extends Controller {
         $records = $query->forPage($page, $limit)->get();
 
         return response()
-            ->json($records)
+            ->json($this->transformCollection($records))
             ->header('X-Total-Count', $total);
     }
 
     public function show(string $id) {
-        $record = $this->getModel()::find($id);
+        //$record = $this->getModel()::find($id);
+        $modelClass = $this->getModel();
+        $record = $modelClass::with($this->getRelations())->find($id);
 
         if (!$record)
             return response()->json(['message' => 'Item não encontrado'], 404);
 
-        return response()->json($record);
+        return $this->transformRecord($record);
+        //return response()->json($record);
     }
 
     public function store(Request $request) {
@@ -89,33 +130,35 @@ abstract class BaseController extends Controller {
 
         $validated = $this->getValidator($request);
 
-        $record = $this->getModel()::create($validated);
+        $record = $this->storeMiddleware($validated);
 
-        return response()->json($record, 201);
+        if (!$record) return response()->json(['message' => 'Erro ao criar registro'], 500);
+
+        return $this->transformRecord($record);
     }
 
     public function update(Request $request, string $id) {
         $request->headers->set('Accept', 'application/json');
 
         $record = $this->getModel()::find($id);
-        if (!$record)
-            return response()->json(['message' => 'Registro não encontrado.'], 404);
+        if (!$record) return response()->json(['message' => 'Registro não encontrado.'], 404);
 
         $input = $request->all();
-        if (empty($input))
-            return response()->json(['message' => 'Nenhum campo informado'], 400);
+        if (empty($input)) return response()->json(['message' => 'Nenhum campo informado'], 400);
 
         $allRules = $this->getRules();
         $rules = array_intersect_key($allRules, $input);
+        if (empty($rules)) return response()->json(['message' => 'Nenhum campo válido enviado'], 400);
 
-        if (empty($rules))
-            return response()->json(['message' => 'Nenhum campo válido enviado'], 400);
+        $validated = $this->getValidator($request);
 
-        $validated = $request->validate($rules);
+        $record = $this->updateMiddleware($record, $validated);
 
-        $record->fill($validated);
+        return $this->transformRecord($record);
+
+        /*$record->fill($validated);
         $record->save();
 
-        return response()->json($record, 200);
+        return response()->json($record, 200);*/
     }
 }

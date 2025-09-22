@@ -6,16 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Product extends Model {
+class Procedure extends Model {
     use HasFactory;
 
     public $timestamps = false;
 
     protected $fillable = [
-        "name",
-        "quantity",
-        "unit",
-        "purchasePrice"
+        'name',
+        'materialsCost',
+    ];
+
+    protected $casts = [
+        'materialsCost' => 'decimal:8'
     ];
 
     protected static function booted() {
@@ -24,7 +26,8 @@ class Product extends Model {
         });
     }
 
-    protected $casts = [
-        'purchasePrice' => 'decimal:4'
-    ];
+    public function materials() {
+        return $this->belongsToMany(Material::class, 'material_procedure')
+            ->withPivot(['quantityUsed', 'totalCost']);
+    }
 }

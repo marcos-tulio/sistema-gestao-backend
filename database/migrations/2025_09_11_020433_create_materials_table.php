@@ -10,10 +10,13 @@ return new class extends Migration {
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->after('name');
             $table->unsignedInteger('quantity');
             $table->string('unit');
             $table->decimal('purchasePrice', 11, 4); // 9.999.999,9999
             $table->decimal('unitCost', 15, 8);      // 9.999.999,99999999
+
+            $table->index('slug');
         });
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,5 @@ Route::get('/usuario', function () {
 });
 
 Route::apiResource('/materiais', MaterialController::class);
-
 Route::apiResource('/produtos', ProductController::class);
+Route::apiResource('/procedimentos', ProcedureController::class);

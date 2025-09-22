@@ -10,9 +10,12 @@ return new class extends Migration {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->after('name');
             $table->unsignedInteger('quantity');
             $table->string('unit');
             $table->decimal('purchasePrice', 11, 4); // 9.999.999,9999
+
+            $table->index('slug');
         });
     }
 

@@ -946,8 +946,7 @@
           "quantityUsed": 10,
           "totalCost": 14.67
         }
-      ],
-      "currentPrice": 150
+      ]
     },
     {
       "materials": [
@@ -1184,10 +1183,10 @@
             "average": 2.15,
             "comment": "directLaborPayments / directLaborMinutes"
           },
-          "revenueByDirectLaborMinutes": {
+          "fixedExpensesByDirectLaborMinutes": {
             "total": 3.17,
             "average": 3.17,
-            "comment": "revenue / directLaborMinutes.total"
+            "comment": "fixedExpenses / directLaborMinutes.total"
           }
         },
         "procedure": {
@@ -1268,10 +1267,10 @@
             "average": 2.15,
             "comment": "directLaborPayments / directLaborMinutes"
           },
-          "revenueByDirectLaborMinutes": {
+          "fixedExpensesByDirectLaborMinutes": {
             "total": 3.17,
             "average": 3.17,
-            "comment": "revenue / directLaborMinutes.total"
+            "comment": "fixedExpenses / directLaborMinutes.total"
           }
         },
         "product": {
