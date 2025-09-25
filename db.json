@@ -1088,7 +1088,7 @@
       "minutesWorked": 480,
       "daysWorked": 20,
       "totalMinutesWorked": 14400,
-      "directLaborPerMinute": 100.1,
+      "costDirectLaborPerMinute": 100.1,
       "paymentAmount": 2000,
       "payment13": 166.66,
       "transportVoucher": 120,

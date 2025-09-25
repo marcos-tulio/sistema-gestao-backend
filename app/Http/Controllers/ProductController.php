@@ -9,7 +9,7 @@ class ProductController extends BaseController {
         return Product::class;
     }
 
-    protected function getRules(): array {
+    protected function getStoreRules(): array {
         return [
             'name' => 'required|string|max:255',
             'quantity' => 'required|numeric|min:1',

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CollaboratorController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\PricingProductController;
 use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -29,3 +31,9 @@ Route::get('/usuario', function () {
 Route::apiResource('/materiais', MaterialController::class);
 Route::apiResource('/produtos', ProductController::class);
 Route::apiResource('/procedimentos', ProcedureController::class);
+Route::apiResource('/colaboradores', CollaboratorController::class);
+
+//Route::get('/precificacao/produtos', [ProductController::class, 'index']);
+Route::apiResource('/precificacao/produtos', PricingProductController::class);
+
+Route::get('/precificacao/procedimentos', [ProcedureController::class, 'index']);

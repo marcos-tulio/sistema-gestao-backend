@@ -15,7 +15,8 @@ class Product extends Model {
         "name",
         "quantity",
         "unit",
-        "purchasePrice"
+        "purchasePrice",
+        "isCurrent"
     ];
 
     protected static function booted() {
@@ -27,4 +28,16 @@ class Product extends Model {
     protected $casts = [
         'purchasePrice' => 'decimal:4'
     ];
+
+    public function pricingProducts() {
+        return $this->hasMany(PricingProduct::class);
+    }
+
+    public function currentPricing() {
+        return $this->hasOne(PricingProduct::class)->where('isCurrent', true);
+    }
+
+    public function latestPricing() {
+        return $this->hasOne(PricingProduct::class)->latestOfMany();
+    }
 }

@@ -11,7 +11,7 @@ class MaterialController extends BaseController {
         return Material::class;
     }
 
-    protected function getRules(): array {
+    protected function getStoreRules(): array {
         return [
             'name' => 'required|string|max:255',
             'quantity' => 'required|numeric|min:1',
@@ -20,8 +20,8 @@ class MaterialController extends BaseController {
         ];
     }
 
-    protected function getValidator(Request $request): array {
-        $validated = $request->validate($this->getRules());
+    protected function getStoreValidator(Request $request): array {
+        $validated = $request->validate($this->getStoreRules());
         $validated['unitCost'] = bcdiv($validated['purchasePrice'], $validated['quantity'], 8);
         return $validated;
     }

@@ -11,35 +11,45 @@ abstract class BaseController extends Controller {
 
     abstract protected function getModel(): string;
 
-    // Relações a serem carregadas (padrão vazio)
     protected function getRelations(): array {
         return [];
     }
 
-    // Resource opcional
-    protected function getResource(): ?string {
+    protected function getResourceRecord(): ?string {
         return null;
     }
 
-    protected function getRules(): array {
+    protected function getResourceCollection(): ?string {
+        return null;
+    }
+
+    protected function getStoreRules(): array {
         return [];
+    }
+
+    protected function getUpdateRules(): array {
+        return $this->getStoreRules();
     }
 
     protected function getSorts(): array {
         return ['id'];
     }
 
-    protected function getValidator(Request $request): array {
-        return $request->validate($this->getRules());
+    protected function getStoreValidator(Request $request): array {
+        return $request->validate($this->getStoreRules());
+    }
+
+    protected function getUpdateValidator(Request $request): array {
+        return $request->validate($this->getUpdateRules());
     }
 
     protected function transformCollection($records) {
-        $resource = $this->getResource();
+        $resource = $this->getResourceCollection();
         return $resource ? $resource::collection($records) : $records;
     }
 
     protected function transformRecord($record) {
-        $resource = $this->getResource();
+        $resource = $this->getResourceRecord();
         return $resource ? new $resource($record) : $record;
     }
 
@@ -54,6 +64,11 @@ abstract class BaseController extends Controller {
         return $record;
     }
 
+    protected function sort($query, $sort, $order) {
+        $query->orderBy($sort, $order);
+        return $query;
+    }
+
     public function destroy(string $id): JsonResponse {
         $record = $this->getModel()::find($id);
 
@@ -65,9 +80,9 @@ abstract class BaseController extends Controller {
         return response()->json(['message' => 'Registro deletado com sucesso.'], 200);
     }
 
-    public function index(Request $request) {
+    public function index(Request $request, $query = null) {
         $modelClass = $this->getModel();
-        $query = $modelClass::query();
+        $query = $query ?: $modelClass::query();
         $table = (new $modelClass)->getTable();
 
         foreach ($request->all() as $param => $value) {
@@ -90,13 +105,15 @@ abstract class BaseController extends Controller {
             }
         }
 
+
         $allowedSorts = $this->getSorts();
         $sort = $request->get('_sort', 'id');
         $order = strtolower($request->get('_order', 'asc'));
 
         if (in_array($sort, $allowedSorts)) {
             if (!in_array($order, ['asc', 'desc'])) $order = 'asc';
-            $query->orderBy($sort, $order);
+            $this->sort($query, $sort, $order);
+            //$query->orderBy($sort, $order);
         }
 
         $page  = (int) $request->get('_page', 1);
@@ -114,7 +131,6 @@ abstract class BaseController extends Controller {
     }
 
     public function show(string $id) {
-        //$record = $this->getModel()::find($id);
         $modelClass = $this->getModel();
         $record = $modelClass::with($this->getRelations())->find($id);
 
@@ -122,13 +138,12 @@ abstract class BaseController extends Controller {
             return response()->json(['message' => 'Item não encontrado'], 404);
 
         return $this->transformRecord($record);
-        //return response()->json($record);
     }
 
     public function store(Request $request) {
         $request->headers->set('Accept', 'application/json');
 
-        $validated = $this->getValidator($request);
+        $validated = $this->getStoreValidator($request);
 
         $record = $this->storeMiddleware($validated);
 
@@ -146,19 +161,14 @@ abstract class BaseController extends Controller {
         $input = $request->all();
         if (empty($input)) return response()->json(['message' => 'Nenhum campo informado'], 400);
 
-        $allRules = $this->getRules();
+        $allRules = $this->getUpdateRules();
         $rules = array_intersect_key($allRules, $input);
         if (empty($rules)) return response()->json(['message' => 'Nenhum campo válido enviado'], 400);
 
-        $validated = $this->getValidator($request);
+        $validated = $this->getUpdateValidator($request);
 
         $record = $this->updateMiddleware($record, $validated);
 
         return $this->transformRecord($record);
-
-        /*$record->fill($validated);
-        $record->save();
-
-        return response()->json($record, 200);*/
     }
 }

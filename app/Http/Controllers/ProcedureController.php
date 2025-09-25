@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ProcedureResource;
+use App\Http\Resources\ProcedureRecordResource;
 use App\Models\Material;
 use App\Models\Procedure;
-use Illuminate\Http\Request;
 
 class ProcedureController  extends BaseController {
 
@@ -17,7 +16,7 @@ class ProcedureController  extends BaseController {
         return ['materials'];
     }
 
-    protected function getRules(): array {
+    protected function getStoreRules(): array {
         return [
             'name' => 'required|string|max:255',
             'materials' => 'sometimes|array',
@@ -30,12 +29,8 @@ class ProcedureController  extends BaseController {
         return ['id', 'name'];
     }
 
-    protected function getResource(): ?string {
-        return ProcedureResource::class;
-    }
-
-    protected function transformCollection($records) {
-        return $records;
+    protected function getResourceRecord(): ?string {
+        return ProcedureRecordResource::class;
     }
 
     protected function storeMiddleware($validated) {
