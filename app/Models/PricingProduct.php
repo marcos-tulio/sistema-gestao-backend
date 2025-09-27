@@ -8,8 +8,4 @@ class PricingProduct extends Pricing {
     use HasFactory;
 
     protected $table = 'pricing_products';
-
-    protected $fillable = [];
-
-    protected $casts = [];
 }

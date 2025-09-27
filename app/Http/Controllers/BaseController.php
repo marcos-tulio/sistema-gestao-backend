@@ -43,6 +43,19 @@ abstract class BaseController extends Controller {
         return $request->validate($this->getUpdateRules());
     }
 
+    protected function getUpdateRequest(Request $request) {
+        $request->headers->set('Accept', 'application/json');
+
+        $input = $request->all();
+        if (empty($input)) return response()->json(['message' => 'Nenhum campo informado'], 400);
+
+        $allRules = $this->getUpdateRules();
+        $rules = array_intersect_key($allRules, $input);
+        if (empty($rules)) return response()->json(['message' => 'Nenhum campo válido enviado'], 400);
+
+        return $request;
+    }
+
     protected function transformCollection($records) {
         $resource = $this->getResourceCollection();
         return $resource ? $resource::collection($records) : $records;
@@ -153,19 +166,14 @@ abstract class BaseController extends Controller {
     }
 
     public function update(Request $request, string $id) {
-        $request->headers->set('Accept', 'application/json');
+        $requestValidated = $this->getUpdateRequest($request);
+
+        if (!$requestValidated instanceof Request) return $requestValidated;
+
+        $validated = $this->getUpdateValidator($requestValidated);
 
         $record = $this->getModel()::find($id);
         if (!$record) return response()->json(['message' => 'Registro não encontrado.'], 404);
-
-        $input = $request->all();
-        if (empty($input)) return response()->json(['message' => 'Nenhum campo informado'], 400);
-
-        $allRules = $this->getUpdateRules();
-        $rules = array_intersect_key($allRules, $input);
-        if (empty($rules)) return response()->json(['message' => 'Nenhum campo válido enviado'], 400);
-
-        $validated = $this->getUpdateValidator($request);
 
         $record = $this->updateMiddleware($record, $validated);
 

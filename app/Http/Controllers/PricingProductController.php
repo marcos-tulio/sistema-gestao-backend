@@ -72,35 +72,63 @@ class PricingProductController extends BaseController {
 
     protected function getUpdateRules(): array {
         return [
-            'current' => 'sometimes|array',
-            'current.price' => 'required_with:current|numeric|min:0',
-            'current.commission' => 'required_with:current|numeric|min:0',
-            'current.taxes' => 'required_with:current|numeric|min:0',
-            'current.cardTax' => 'required_with:current|numeric|min:0',
-            'current.includesFixedExpenses' => 'required_with:current|boolean',
-            'current.includesFixedExpensesPercentual' => 'required_with:current|boolean',
+            'current'                                 => 'required|array',
+            'current.price'                           => 'required|numeric|min:0',
+            'current.commission'                      => 'sometimes|nullable|numeric|min:0',
+            'current.taxes'                           => 'sometimes|nullable|numeric|min:0',
+            'current.cardTax'                         => 'sometimes|nullable|numeric|min:0',
+            'current.includesFixedExpenses'           => 'sometimes|nullable|boolean',
+            'current.includesFixedExpensesPercentual' => 'sometimes|nullable|boolean',
 
-            'new' => 'sometimes|array',
-            'new.price' => 'required_with:new|numeric|min:0',
-            'new.commission' => 'required_with:new|numeric|min:0',
-            'new.taxes' => 'required_with:new|numeric|min:0',
-            'new.cardTax' => 'required_with:new|numeric|min:0',
-            'new.includesFixedExpenses' => 'required_with:new|boolean',
-            'new.includesFixedExpensesPercentual' => 'required_with:new|boolean'
+            'new'                                     => 'sometimes|nullable|array',
+            'new.price'                               => 'sometimes|nullable|numeric|min:0',
+            'new.commission'                          => 'sometimes|nullable|numeric|min:0',
+            'new.taxes'                               => 'sometimes|nullable|numeric|min:0',
+            'new.cardTax'                             => 'sometimes|nullable|numeric|min:0',
+            'new.includesFixedExpenses'               => 'sometimes|nullable|boolean',
+            'new.includesFixedExpensesPercentual'     => 'sometimes|nullable|boolean'
         ];
     }
 
-    /*public function update(Request $request, string $id) {
-        dd($request->all());
-    }*/
+    protected function getUpdateValidator(Request $request): array {
+        $validated = $request->validate($this->getUpdateRules());
 
-    protected function updateMiddleware($record, $validated) {
-        dd($validated, $record);
-        /*$record->fill($validated);
-        $record->save();*/
-        return $record;
+        $validated = array_map(function ($item) {
+            if (is_array($item))
+                return array_filter($item, fn($value) => !is_null($value));
+
+            return $item;
+        }, $validated);
+
+        return $validated;
     }
 
+    public function update(Request $request, string $id) {
+        // Pré validação
+        $requestValidated = $this->getUpdateRequest($request);
+        if (!$requestValidated instanceof Request) return $requestValidated;
+
+        $validated = $this->getUpdateValidator($requestValidated);
+
+        $product = Product::query()->with(['currentPricing', 'latestPricing'])->find($id);
+        if (!$product) return response()->json(['message' => 'Registro não encontrado.'], 404);
+
+        if (isset($validated['current']) && $validated['current']) {
+            $validated['current']['isCurrent'] = true;
+            $currentPricing = $product->currentPricing()->updateOrCreate([], $validated['current']);
+            $product->setRelation('currentPricing', $currentPricing);
+        }
+
+        if (isset($validated['new']) && $validated['new']) {
+            $validated['new']['isCurrent'] = false;
+            $latestPricing = $product->latestPricing()->updateOrCreate([], $validated['new']);
+            $product->setRelation('latestPricing', $latestPricing);
+        }
+
+        $product->save();
+
+        return $this->transformRecord($product);
+    }
 
     public function store(Request $request) {
         return response()->json(['message' => 'Método não permitido'], 405);

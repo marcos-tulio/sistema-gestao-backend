@@ -40,7 +40,7 @@ class PricingProductRecordResource extends JsonResource {
         ])->toArray();
 
         $data['financialSummary'] = [
-            'revenue' => [
+            /*'revenue' => [
                 'total' => 0,
                 'average' => 114264.63
             ],
@@ -70,7 +70,7 @@ class PricingProductRecordResource extends JsonResource {
                 'total' => 3.35,
                 'average' => 2.15,
                 'comment' => 'directLaborPayments / directLaborMinutes'
-            ],
+            ],*/
             'fixedExpensesByDirectLaborMinutes' => [
                 'total'   => 3.17,
                 'average' => 3.17,

@@ -12,16 +12,16 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->boolean('isCurrent')->default(false);
-            $table->decimal('price', 11, 4);     // 9.999.999,9999
-            $table->decimal('commission', 8, 4); // 9.999,9999
-            $table->decimal('taxes', 8, 4);
-            $table->decimal('cardTax', 8, 4);
+            $table->decimal('price', 11, 4)->default(0);     // 9.999.999,9999
+            $table->decimal('commission', 8, 4)->default(0); // 9.999,9999
+            $table->decimal('taxes', 8, 4)->default(0);
+            $table->decimal('cardTax', 8, 4)->default(0);
 
-            $table->decimal('variableExpenses', 13, 8);   // 9.999.999,999999
-            $table->decimal('fixedExpenses', 13, 8);      // 9.999.999,999999
-            $table->decimal('totalExpenses', 13, 8);      // 9.999.999,999999
-            $table->decimal('contributionMargin', 13, 8); // 9.999.999,999999
-            $table->decimal('profitability', 13, 8);      // 9.999.999,999999
+            $table->decimal('variableExpenses', 13, 8)->default(0);   // 9.999.999,999999
+            $table->decimal('fixedExpenses', 13, 8)->default(0);      // 9.999.999,999999
+            $table->decimal('totalExpenses', 13, 8)->default(0);      // 9.999.999,999999
+            $table->decimal('contributionMargin', 13, 8)->default(0); // 9.999.999,999999
+            $table->decimal('profitability', 13, 8)->default(0);      // 9.999.999,999999
 
             $table->boolean('includesFixedExpenses')->default(false);
             $table->boolean('includesFixedExpensesPercentual')->default(false);

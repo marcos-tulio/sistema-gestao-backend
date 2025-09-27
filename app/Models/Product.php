@@ -38,6 +38,6 @@ class Product extends Model {
     }
 
     public function latestPricing() {
-        return $this->hasOne(PricingProduct::class)->latestOfMany();
+        return $this->hasOne(PricingProduct::class)->latestOfMany()->where('isCurrent', false);
     }
 }

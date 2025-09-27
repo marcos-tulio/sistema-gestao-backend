@@ -14,7 +14,16 @@ class ProductController extends BaseController {
             'name' => 'required|string|max:255',
             'quantity' => 'required|numeric|min:1',
             'unit' => 'required|string|max:10',
-            'purchasePrice' => 'required|numeric|gt:0',
+            'purchasePrice' => 'sometimes|numeric|min:0',
+        ];
+    }
+
+    protected function getUpdateRules(): array {
+        return [
+            'name' => 'sometimes|string|max:255',
+            'quantity' => 'sometimes|numeric|min:1',
+            'unit' => 'sometimes|string|max:10',
+            'purchasePrice' => 'sometimes|numeric|min:0',
         ];
     }
 
