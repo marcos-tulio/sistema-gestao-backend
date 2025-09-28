@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CollaboratorController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\PricingProcedureController;
 use App\Http\Controllers\PricingProductController;
 use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\ProductController;
@@ -35,5 +36,4 @@ Route::apiResource('/colaboradores', CollaboratorController::class);
 
 //Route::get('/precificacao/produtos', [ProductController::class, 'index']);
 Route::apiResource('/precificacao/produtos', PricingProductController::class);
-
-Route::get('/precificacao/procedimentos', [ProcedureController::class, 'index']);
+Route::apiResource('/precificacao/procedimentos', PricingProcedureController::class);

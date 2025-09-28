@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 class PricingProduct extends Pricing {
-    use HasFactory;
 
     protected $table = 'pricing_products';
+
+    public function product() {
+        return $this->hasOne(Product::class, 'id', 'product_id');
+    }
 }

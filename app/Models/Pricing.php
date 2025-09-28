@@ -13,35 +13,24 @@ abstract class Pricing extends Model {
         "commission",
         "taxes",
         "cardTax",
-        "variableExpenses",
-        "fixedExpenses",
-        "totalExpenses",
-        "contributionMargin",
-        "profitability",
         "includesFixedExpenses",
         "includesFixedExpensesPercentual",
-        "isCurrent"
+        "isCurrent",
+        "includesDirectLabor",
+        "timeSpentInMinutes",
     ];
 
-    /*
-        "timeSpent": 60,
-        "includesDirectLabor": true,
-        "includesFixedExpenses": false,
-        "fixedExpensesPercentual": false,
-        "directLaborExpanses": 0,
-    */
-
     protected $casts = [
-        'price' => 'decimal:4',
-        'commission' => 'decimal:4',
-        'taxes' => 'decimal:4',
-        'cardTax' => 'decimal:4',
+        'price'              => 'decimal:4',
+        'commission'         => 'decimal:4',
+        'taxes'              => 'decimal:4',
+        'cardTax'            => 'decimal:4',
 
-        'variableExpenses'   => 'decimal:8',
-        'fixedExpenses'      => 'decimal:8',
-        'totalExpenses'      => 'decimal:8',
-        'contributionMargin' => 'decimal:8',
-        'profitability'      => 'decimal:8',
+        'variableExpenses'   => 'decimal:6',
+        'fixedExpenses'      => 'decimal:6',
+        'totalExpenses'      => 'decimal:6',
+        'contributionMargin' => 'decimal:6',
+        'profitability'      => 'decimal:6',
     ];
 
     public function getProfitabilityPercentualAttribute() {
@@ -62,21 +51,21 @@ abstract class Pricing extends Model {
             $model->totalExpenses = bcadd(
                 $model->variableExpenses ?? 0,
                 $model->fixedExpenses ?? 0,
-                8
+                6
             );
 
             // Margem de contribuição
             $model->contributionMargin = bcsub(
                 $model->price ?? 0,
                 $model->variableExpenses ?? 0,
-                8
+                6
             );
 
             // Lucratividade
             $model->profitability = bcsub(
                 $model->price ?? 0,
                 $model->totalExpenses ?? 0,
-                8
+                6
             );
         });
     }
@@ -87,9 +76,9 @@ abstract class Pricing extends Model {
 
         // fazer o calculo com o resumo financeiro
         if ($this->includesFixedExpensesPercentual)
-            return bcadd(10, 0, 8);
+            return bcadd(10, 0, 6);
 
-        return bcadd(10, 0, 8);
+        return bcadd(10, 0, 6);
 
         /*
 
@@ -115,22 +104,27 @@ abstract class Pricing extends Model {
     }
 
     protected function calculateVariableExpenses(): string {
-        // custo
-        $cost = $this->purchasePrice ?? 0;
-        $cost = bcadd($cost, $this->materialsCost ?? 0, 8);
+        // Custo
+        $cost = 0;
 
-        // taxas
-        $percentual = bcadd($this->commission ?? 0, $this->cardTax ?? 0, 8);
-        $percentual = bcadd($percentual, $this->taxes ?? 0, 8);
-        $percentual = bcdiv($percentual, 100, 8);
+        // Custo do produto
+        $product = $this->product;
+        if ($product) $cost = bcadd($cost, $product->purchasePrice ?? 0, 6);
+
+        // taxas -> (comissao + cartao + impostos)/100
+        $percentual = bcadd($this->commission ?? 0, $this->cardTax ?? 0, 6);
+        $percentual = bcadd($percentual, $this->taxes ?? 0, 6);
+        $percentual = bcdiv($percentual, 100, 6);
 
         // Todo: incluir MOD no filho
 
 
-        // Total
-        $total = bcmul($this->price ?? 0, $percentual, 8);
-        $total = bcadd($total, $cost, 8);
+        // Total -> (custo + (preco * percentual))
+        $total = bcmul($this->price ?? 0, $percentual, 6);
+        $total = bcadd($total, $cost, 6);
 
         return $total;
     }
+
+    //abstract public function cost();
 }
