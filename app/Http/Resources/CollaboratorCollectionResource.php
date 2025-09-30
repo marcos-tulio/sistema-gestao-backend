@@ -2,20 +2,21 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class CollaboratorCollectionResource extends JsonResource {
+class CollaboratorCollectionResource extends ResourceCollection {
 
     public static $wrap = null;
 
-    public function toArray(Request $request): array {
-        return [
-            "id" => $this->id,
-            "name" => $this->name,
-            "profession" => $this->profession,
-            "totalCost" => $this->totalCost,
-            "costDirectLaborPerMinute" => $this->costDirectLaborPerMinute,
-        ];
+    public function toArray($request) {
+        return $this->collection->transform(function ($item) {
+            return [
+                "id" => $item->id,
+                "name" => $item->name,
+                "profession" => $item->profession,
+                "totalCost" => $item->totalCost,
+                "costDirectLaborPerMinute" => $item->costDirectLaborPerMinute,
+            ];
+        });
     }
 }

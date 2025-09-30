@@ -2,22 +2,24 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class PricingCollectionResource extends JsonResource {
+class PricingCollectionResource extends ResourceCollection {
 
     public static $wrap = null;
 
     public function toArray($request) {
-        return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'current' => $this->currentPricing ? [
-                'price'         => $this->currentPricing->price,
-                'totalExpenses' => $this->currentPricing->totalExpenses,
-                'profitability' => $this->currentPricing->profitability,
-                'profitabilityPercentual' => $this->currentPricing->profitabilityPercentual,
-            ] : [],
-        ];
+        return $this->collection->transform(function ($item) {
+            return [
+                'id' => $item->id,
+                'name' => $item->name,
+                'current' => $item->currentPricing ? [
+                    'price'         => $item->currentPricing->price,
+                    'totalExpenses' => $item->currentPricing->totalExpenses,
+                    'profitability' => $item->currentPricing->profitability,
+                    'profitabilityPercentual' => $item->currentPricing->profitabilityPercentual,
+                ] : []
+            ];
+        });
     }
 }

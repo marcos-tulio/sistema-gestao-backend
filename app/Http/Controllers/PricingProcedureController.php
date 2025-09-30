@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\PricingProcedureRecordResource;
+use App\Http\Resources\PricingProcedureResource;
 use App\Models\PricingProcedure;
 use App\Models\Procedure;
 
@@ -17,7 +17,7 @@ class PricingProcedureController extends PricingController {
     }
 
     protected function getResourceRecord(): ?string {
-        return PricingProcedureRecordResource::class;
+        return PricingProcedureResource::class;
     }
 
     protected function getUpdateRules(): array {

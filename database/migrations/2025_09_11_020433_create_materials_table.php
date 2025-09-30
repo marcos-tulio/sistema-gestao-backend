@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->unsignedInteger('quantity');
             $table->string('unit');
             $table->decimal('purchasePrice', 11, 4); // 9.999.999,9999
-            $table->decimal('unitCost', 15, 8);      // 9.999.999,99999999
+            $table->decimal('unitCost', 13, 6);      // 9.999.999,999999
 
             $table->index('slug');
         });

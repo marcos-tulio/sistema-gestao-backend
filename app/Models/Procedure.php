@@ -15,7 +15,7 @@ class Procedure extends Model {
     ];
 
     protected $casts = [
-        'materialsCost' => 'decimal:8'
+        'materialsCost' => 'decimal:6'
     ];
 
     protected $materialsData = [];
@@ -51,14 +51,14 @@ class Procedure extends Model {
 
                 if (!$materialId || !isset($dbMaterials[$materialId])) continue;
 
-                $totalCost = bcmul($quantity, $dbMaterials[$materialId], 8);
+                $totalCost = bcmul($quantity, $dbMaterials[$materialId], 6);
 
                 $pivotData[$materialId] = [
                     'quantityUsed' => $quantity,
                     'totalCost' => $totalCost,
                 ];
 
-                $totalCostSum = bcadd($totalCostSum, $totalCost, 8);
+                $totalCostSum = bcadd($totalCostSum, $totalCost, 6);
             }
 
             // Sincroniza pivot

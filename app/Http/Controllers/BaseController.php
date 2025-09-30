@@ -15,6 +15,10 @@ abstract class BaseController extends Controller {
         return [];
     }
 
+    protected function getRelationsCollection(): array {
+        return [];
+    }
+
     protected function getResourceRecord(): ?string {
         return null;
     }
@@ -58,7 +62,9 @@ abstract class BaseController extends Controller {
 
     protected function transformCollection($records) {
         $resource = $this->getResourceCollection();
-        return $resource ? $resource::collection($records) : $records;
+        return $resource ? new $resource($records) : $records;
+
+        //return $resource ? $resource::collection($records) : $records;
     }
 
     protected function transformRecord($record) {
@@ -96,6 +102,8 @@ abstract class BaseController extends Controller {
     public function index(Request $request, $query = null) {
         $modelClass = $this->getModel();
         $query = $query ?: $modelClass::query();
+        $query->with($this->getRelationsCollection());
+
         $table = (new $modelClass)->getTable();
 
         foreach ($request->all() as $param => $value) {
@@ -117,7 +125,6 @@ abstract class BaseController extends Controller {
                 $query->where($param, $value);
             }
         }
-
 
         $allowedSorts = $this->getSorts();
         $sort = $request->get('_sort', 'id');

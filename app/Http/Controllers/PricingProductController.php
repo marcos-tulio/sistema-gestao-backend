@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PricingProduct;
 use App\Models\Product;
-use App\Http\Resources\PricingProductRecordResource;
+use App\Http\Resources\PricingProductResource;
 
 class PricingProductController extends PricingController {
 
@@ -17,6 +17,6 @@ class PricingProductController extends PricingController {
     }
 
     protected function getResourceRecord(): ?string {
-        return PricingProductRecordResource::class;
+        return PricingProductResource::class;
     }
 }

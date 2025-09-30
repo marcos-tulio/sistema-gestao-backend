@@ -111,6 +111,10 @@ abstract class Pricing extends Model {
         $product = $this->product;
         if ($product) $cost = bcadd($cost, $product->purchasePrice ?? 0, 6);
 
+        // Custo do procedimento
+        $procedure = $this->procedure;
+        if ($procedure) $cost = bcadd($cost, $procedure->materialsCost ?? 0, 6);
+
         // taxas -> (comissao + cartao + impostos)/100
         $percentual = bcadd($this->commission ?? 0, $this->cardTax ?? 0, 6);
         $percentual = bcadd($percentual, $this->taxes ?? 0, 6);

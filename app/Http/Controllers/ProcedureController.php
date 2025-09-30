@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ProcedureRecordResource;
+use App\Http\Resources\ProcedureResource;
 use App\Models\Material;
 use App\Models\Procedure;
 
@@ -30,7 +30,7 @@ class ProcedureController  extends BaseController {
     }
 
     protected function getResourceRecord(): ?string {
-        return ProcedureRecordResource::class;
+        return ProcedureResource::class;
     }
 
     protected function storeMiddleware($validated) {

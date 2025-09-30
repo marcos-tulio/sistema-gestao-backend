@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProcedureRecordResource extends JsonResource {
+class ProcedureResource extends JsonResource {
 
     public static $wrap = null;
 

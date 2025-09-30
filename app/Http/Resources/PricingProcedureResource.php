@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-class PricingProcedureRecordResource extends PricingRecordResource {
+class PricingProcedureResource extends PricingResource {
 
     protected function getRelationsFields(): array {
         $fields = parent::getRelationsFields();

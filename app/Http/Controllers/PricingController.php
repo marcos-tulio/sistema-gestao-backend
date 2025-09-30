@@ -123,7 +123,7 @@ abstract class PricingController extends BaseController {
             $modelRelationed->setRelation('latestPricing', $latestPricing);
         }
 
-        $modelRelationed->save();
+        //$modelRelationed->save();
 
         return $this->transformRecord($modelRelationed);
     }

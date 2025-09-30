@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PricingRecordResource extends JsonResource {
+class PricingResource extends JsonResource {
 
     public static $wrap = null;
 
@@ -69,12 +69,12 @@ class PricingRecordResource extends JsonResource {
                 'total' => 15000,
                 'average' => 10000,
                 'comment' => 'Tempo de trabalho dos funcionários com MOD'
-            ],
+            ],*/
             'directLaborExpenses' => [
                 'total' => 3.35,
                 'average' => 2.15,
                 'comment' => 'directLaborPayments / directLaborMinutes'
-            ],*/
+            ],
             'fixedExpensesByDirectLaborMinutes' => [
                 'total'   => 3.17,
                 'average' => 3.17,

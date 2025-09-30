@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CollaboratorController;
+use App\Http\Controllers\FinancialController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PricingProcedureController;
 use App\Http\Controllers\PricingProductController;
@@ -34,6 +35,7 @@ Route::apiResource('/produtos', ProductController::class);
 Route::apiResource('/procedimentos', ProcedureController::class);
 Route::apiResource('/colaboradores', CollaboratorController::class);
 
-//Route::get('/precificacao/produtos', [ProductController::class, 'index']);
 Route::apiResource('/precificacao/produtos', PricingProductController::class);
 Route::apiResource('/precificacao/procedimentos', PricingProcedureController::class);
+
+Route::apiResource('/financeiro', FinancialController::class);

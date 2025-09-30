@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "revenue",
+    "title": "Faturamento",
+    "isIncome": true,
+    "isDeletable": false,
+    "values": {
+      "year": 2025,
+      "monthly": {
+        "jan": 83297.68,
+        "feb": 32347.96,
+        "mar": 45529.95,
+        "apr": 100000,
+        "may": 120000,
+        "jun": 120000,
+        "jul": 120000,
+        "aug": 150000,
+        "sep": 150000,
+        "oct": 150000,
+        "nov": 150000,
+        "dec": 150000
+      }
+    }
+  },
+  {
+    "id": 2,
+    "name": "variableExpenses",
+    "title": "Custos e despesas variáveis",
+    "isIncome": false,
+    "isDeletable": false,
+    "values": {
+      "year": 2025,
+      "monthly": {
+        "jan": 83297.68,
+        "feb": 32347.96,
+        "mar": 45529.95,
+        "apr": 100000,
+        "may": 120000,
+        "jun": 120000,
+        "jul": 120000,
+        "aug": 150000,
+        "sep": 150000,
+        "oct": 150000,
+        "nov": 150000,
+        "dec": 150000
+      }
+    }
+  },
+  {
+    "id": 3,
+    "name": "fixedExpenses",
+    "title": "Despesas Fixas",
+    "isIncome": false,
+    "isDeletable": false,
+    "values": {
+      "year": 2025,
+      "monthly": {
+        "jan": 83297.68,
+        "feb": 32347.96,
+        "mar": 45529.95,
+        "apr": 100000,
+        "may": 120000,
+        "jun": 120000,
+        "jul": 120000,
+        "aug": 150000,
+        "sep": 150000,
+        "oct": 150000,
+        "nov": 150000,
+        "dec": 150000
+      }
+    }
+  },
+  {
+    "id": 4,
+    "name": "othersExpenses",
+    "title": "Investimentos",
+    "isIncome": false,
+    "isDeletable": false,
+    "values": {
+      "year": 2025,
+      "monthly": {
+        "jan": 83297.68,
+        "feb": 32347.96,
+        "mar": 45529.95,
+        "apr": 100000,
+        "may": 120000,
+        "jun": 120000,
+        "jul": 120000,
+        "aug": 150000,
+        "sep": 150000,
+        "oct": 150000,
+        "nov": 150000,
+        "dec": 150000
+      }
+    }
+  }
+]

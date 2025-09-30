@@ -58,7 +58,7 @@ class Collaborator extends Model {
 
             foreach ($numericFields as $field) {
                 $value = $model->{$field} ?? 0;
-                $total = bcadd($total, $value, 2);
+                $total = bcadd($total, $value, 6);
             }
 
             $model->totalCost = $total;

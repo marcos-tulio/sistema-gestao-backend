@@ -18,7 +18,7 @@ class Material extends Model {
 
     protected $casts = [
         'purchasePrice' => 'decimal:4',
-        'unitCost' => 'decimal:8',
+        'unitCost' => 'decimal:6',
     ];
 
     protected static function booted() {
