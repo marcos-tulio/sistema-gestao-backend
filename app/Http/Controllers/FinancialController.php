@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Resources\FinancialCollectionResource;
 use App\Http\Resources\FinancialResource;
 use App\Models\Financial;
+use Illuminate\Http\Request;
 
+/**
+ * @deprecated
+ */
 class FinancialController extends BaseController {
 
     protected function getModel(): string {
@@ -20,7 +24,7 @@ class FinancialController extends BaseController {
         return FinancialResource::class;
     }*/
 
-    protected function getRelationsCollection(): array {
+    protected function getRelationsCollection(Request $request): array {
         return ['categories'];
     }
 }

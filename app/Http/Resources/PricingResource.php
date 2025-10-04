@@ -19,6 +19,7 @@ class PricingResource extends JsonResource {
             'totalExpenses',
             'contributionMargin',
             'profitability',
+            'profitabilityPercentual',
             'includesFixedExpenses',
             'includesFixedExpensesPercentual',
         ];

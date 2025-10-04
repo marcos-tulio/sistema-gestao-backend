@@ -4,10 +4,10 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class FinancialCollectionResource extends ResourceCollection {
+class FinancialTypeCollectionResource extends ResourceCollection {
     public static $wrap = null;
 
-    public function toArray($request) {
+    /*public function toArray($request) {
         return [
             "types" => $this->collection->transform(function ($item) {
                 return [
@@ -104,5 +104,17 @@ class FinancialCollectionResource extends ResourceCollection {
                 ]
             ]
         ];
+    }*/
+
+    public function toArray($request) {
+        return $this->collection->transform(function ($item) {
+            return [
+                'id' => $item->id,
+                'name' => $item->name,
+                'title' => $item->title,
+                'isIncome' => $item->isIncome,
+                'values' => FinancialTypeValueResource::collection($item->values),
+            ];
+        });
     }
 }

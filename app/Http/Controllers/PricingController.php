@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\PricingCollectionResource;
+use App\Models\PricingProcedure;
+use App\Models\PricingProduct;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 abstract class PricingController extends BaseController {
 
@@ -34,22 +35,23 @@ abstract class PricingController extends BaseController {
         $currentFields = ['price', 'totalExpenses', 'profitability', 'profitabilityPercentual'];
 
         if (str_starts_with($sort, 'current.') && in_array($field = substr($sort, 8), $currentFields)) {
-            if ($field === 'profitabilityPercentual') {
-                // Calcula o percentual diretamente no banco
+            if ($this->getModel() == PricingProduct::class) {
                 $query->orderBy(
-                    $this->getModel()::select(DB::raw('profitability / NULLIF(price,0)'))
+                    $this->getModel()::select($field)
                         ->whereColumn('product_id', 'products.id')
                         ->where('isCurrent', true)
                         ->limit(1),
                     $order
                 );
-            } else $query->orderBy(
-                $this->getModel()::select($field)
-                    ->whereColumn('product_id', 'products.id')
-                    ->where('isCurrent', true)
-                    ->limit(1),
-                $order
-            );
+            } else if ($this->getModel() == PricingProcedure::class) {
+                $query->orderBy(
+                    $this->getModel()::select($field)
+                        ->whereColumn('procedure_id', 'procedures.id')
+                        ->where('isCurrent', true)
+                        ->limit(1),
+                    $order
+                );
+            }
         } else $query = parent::sort($query, $sort, $order);
 
         return $query;

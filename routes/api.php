@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CollaboratorController;
 use App\Http\Controllers\FinancialController;
+use App\Http\Controllers\FinancialTypeController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PricingProcedureController;
 use App\Http\Controllers\PricingProductController;
@@ -38,4 +39,4 @@ Route::apiResource('/colaboradores', CollaboratorController::class);
 Route::apiResource('/precificacao/produtos', PricingProductController::class);
 Route::apiResource('/precificacao/procedimentos', PricingProcedureController::class);
 
-Route::apiResource('/financeiro', FinancialController::class);
+Route::apiResource('/financeiro', FinancialTypeController::class);

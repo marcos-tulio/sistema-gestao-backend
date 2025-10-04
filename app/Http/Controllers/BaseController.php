@@ -15,7 +15,7 @@ abstract class BaseController extends Controller {
         return [];
     }
 
-    protected function getRelationsCollection(): array {
+    protected function getRelationsCollection(Request $request): array {
         return [];
     }
 
@@ -102,25 +102,31 @@ abstract class BaseController extends Controller {
     public function index(Request $request, $query = null) {
         $modelClass = $this->getModel();
         $query = $query ?: $modelClass::query();
-        $query->with($this->getRelationsCollection());
+        $query->with($this->getRelationsCollection($request));
 
         $table = (new $modelClass)->getTable();
+
+        //dd(Schema::getColumns($table), $query);
 
         foreach ($request->all() as $param => $value) {
             if (in_array($param, ['_sort', '_order', '_page', '_limit']))
                 continue;
 
+            /*if (str_starts_with($param, 'values_')) {
+                $column = str_replace('values_', '', $param);
+                $query->whereRelation('values', $column, $value);
+                continue;
+            }*/
+
             if (str_ends_with($param, '_like')) {
                 $column = str_replace('_like', '', $param);
-
-                /*if (Schema::hasColumn($table, $column))
-                    $query->where($column, 'like', '%' . $value . '%');*/
 
                 if ($column === 'name')
                     $query->where('slug', 'like', '%' . Str::slug($value) . '%');
 
-                else if (Schema::hasColumn($table, $column))
+                else if (Schema::hasColumn($table, $column)) {
                     $query->where($column, 'like', '%' . $value . '%');
+                }
             } else if (Schema::hasColumn($table, $param)) {
                 $query->where($param, $value);
             }
@@ -133,21 +139,24 @@ abstract class BaseController extends Controller {
         if (in_array($sort, $allowedSorts)) {
             if (!in_array($order, ['asc', 'desc'])) $order = 'asc';
             $this->sort($query, $sort, $order);
-            //$query->orderBy($sort, $order);
         }
 
-        $page  = (int) $request->get('_page', 1);
+        $page = (int) $request->get('_page', 1);
         if ($page < 1) $page = 1;
 
         $limit = (int) $request->get('_limit', 50);
         if ($limit < 1 || $limit > 100) $limit = 15;
 
-        $total = $query->count();
-        $records = $query->forPage($page, $limit)->get();
+        try {
+            $total = $query->count();
+            $records = $query->forPage($page, $limit)->get();
 
-        return response()
-            ->json($this->transformCollection($records))
-            ->header('X-Total-Count', $total);
+            return response()
+                ->json($this->transformCollection($records))
+                ->header('X-Total-Count', $total);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Requisição inválida'], 400);
+        }
     }
 
     public function show(string $id) {

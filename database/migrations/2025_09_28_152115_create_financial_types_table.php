@@ -7,16 +7,16 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
 
     public function up(): void {
-        Schema::create('financial_categories', function (Blueprint $table) {
+        Schema::create('financial_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('financial_id')->constrained()->onDelete('cascade');
+            $table->string('name')->unique();
             $table->string('title');
-            $table->unsignedInteger('order')->nullable();
+            $table->boolean('isIncome');
+            $table->boolean('isDeletable')->default(true);
         });
     }
 
-
     public function down(): void {
-        Schema::dropIfExists('financial_categories');
+        Schema::dropIfExists('financial_types');
     }
 };

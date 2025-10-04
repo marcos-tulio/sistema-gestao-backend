@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->decimal('totalExpenses', 13, 6)->default(0);      // 9.999.999,999999
             $table->decimal('contributionMargin', 13, 6)->default(0); // 9.999.999,999999
             $table->decimal('profitability', 13, 6)->default(0);      // 9.999.999,999999
+            $table->decimal('profitabilityPercentual', 10, 4)->default(0); // 999.999,9999
 
             $table->boolean('includesFixedExpenses')->default(false);
             $table->boolean('includesFixedExpensesPercentual')->default(false);

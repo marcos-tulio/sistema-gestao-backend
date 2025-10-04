@@ -31,13 +31,8 @@ abstract class Pricing extends Model {
         'totalExpenses'      => 'decimal:6',
         'contributionMargin' => 'decimal:6',
         'profitability'      => 'decimal:6',
+        'profitabilityPercentual' => 'decimal:4',
     ];
-
-    public function getProfitabilityPercentualAttribute() {
-        if ($this->price == 0 || $this->price === null) return null;
-
-        return bcdiv($this->profitability, $this->price, 4);
-    }
 
     protected static function booted() {
         static::saving(function ($model) {
@@ -66,6 +61,13 @@ abstract class Pricing extends Model {
                 $model->price ?? 0,
                 $model->totalExpenses ?? 0,
                 6
+            );
+
+            // Porcentagem de lucratividade
+            $model->profitabilityPercentual = bcdiv(
+                $model->profitability ?? 0,
+                $model->price ?? 1,
+                4
             );
         });
     }
