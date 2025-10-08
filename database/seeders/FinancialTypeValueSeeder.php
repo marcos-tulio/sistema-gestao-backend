@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\FinancialType;
-use App\Models\FinancialTypeValue;
 use Illuminate\Database\Seeder;
 
 class FinancialTypeValueSeeder extends Seeder {

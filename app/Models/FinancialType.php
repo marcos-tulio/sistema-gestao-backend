@@ -10,4 +10,8 @@ class FinancialType extends Model {
     public function values() {
         return $this->hasMany(FinancialTypeValue::class);
     }
+
+    public function categories() {
+        return $this->hasMany(FinancialCategory::class);
+    }
 }

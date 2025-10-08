@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\FinancialTypeCollectionResource;
+use App\Http\Resources\FinancialTypeResource;
 use App\Models\FinancialType;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,10 @@ class FinancialTypeController extends BaseController {
 
     protected function getModel(): string {
         return FinancialType::class;
+    }
+
+    protected function getResourceRecord(): ?string {
+        return FinancialTypeResource::class;
     }
 
     protected function getResourceCollection(): ?string {

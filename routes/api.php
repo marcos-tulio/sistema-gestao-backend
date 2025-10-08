@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CollaboratorController;
-use App\Http\Controllers\FinancialController;
 use App\Http\Controllers\FinancialTypeController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PricingProcedureController;
