@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->foreignId('financial_type_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->unsignedInteger('order')->nullable();
+            $table->boolean('isDeletable')->default(true);
         });
     }
 

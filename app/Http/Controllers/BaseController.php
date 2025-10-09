@@ -11,7 +11,7 @@ abstract class BaseController extends Controller {
 
     abstract protected function getModel(): string;
 
-    protected function getRelations(): array {
+    protected function getRelations(Request $request): array {
         return [];
     }
 
@@ -106,17 +106,9 @@ abstract class BaseController extends Controller {
 
         $table = (new $modelClass)->getTable();
 
-        //dd(Schema::getColumns($table), $query);
-
         foreach ($request->all() as $param => $value) {
             if (in_array($param, ['_sort', '_order', '_page', '_limit']))
                 continue;
-
-            /*if (str_starts_with($param, 'values_')) {
-                $column = str_replace('values_', '', $param);
-                $query->whereRelation('values', $column, $value);
-                continue;
-            }*/
 
             if (str_ends_with($param, '_like')) {
                 $column = str_replace('_like', '', $param);
@@ -159,14 +151,18 @@ abstract class BaseController extends Controller {
         }
     }
 
-    public function show(string $id) {
-        $modelClass = $this->getModel();
-        $record = $modelClass::with($this->getRelations())->find($id);
+    public function show(string $id, Request $request) {
+        try {
+            $modelClass = $this->getModel();
+            $record = $modelClass::with($this->getRelations($request))->find($id);
 
-        if (!$record)
-            return response()->json(['message' => 'Item não encontrado'], 404);
+            if (!$record)
+                return response()->json(['message' => 'Item não encontrado'], 404);
 
-        return $this->transformRecord($record);
+            return $this->transformRecord($record);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Requisição inválida'], 400);
+        }
     }
 
     public function store(Request $request) {

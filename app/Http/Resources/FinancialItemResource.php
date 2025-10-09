@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class FinancialCategoryResource extends JsonResource {
+class FinancialItemResource extends JsonResource {
 
     public static $wrap = null;
 
@@ -12,8 +12,8 @@ class FinancialCategoryResource extends JsonResource {
         return [
             'id'     => $this->id,
             'title'  => $this->title,
-            'order'  => $this->order,
-            'items'  => FinancialItemResource::collection($this->items),
+            'isEditable' => $this->isEditable,
+            'values' => ValueResource::collection($this->values),
         ];
     }
 }

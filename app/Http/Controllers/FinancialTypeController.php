@@ -38,4 +38,14 @@ class FinancialTypeController extends BaseController {
             if ($years) $q->whereIn('year', (array) $years);
         }];
     }
+
+    protected function getRelations(Request $request): array {
+        $years = $request->input('year');
+
+        if (!$years) return ['categories.items.values'];
+
+        return ['categories.items.values' => function ($q) use ($years) {
+            if ($years) $q->whereIn('year', (array) $years);
+        }];
+    }
 }

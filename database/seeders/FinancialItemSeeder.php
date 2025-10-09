@@ -2,16 +2,21 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\FinancialCategory;
 use Illuminate\Database\Seeder;
 
-class FinancialItemSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        //
+class FinancialItemSeeder extends Seeder {
+
+    public function run(): void {
+        FinancialCategory::find(1)?->items()->createMany([
+            ['title' => 'Receitas', 'isDeletable' => false],
+        ]);
+
+        FinancialCategory::find(2)?->items()->createMany([
+            ['title' => 'Comissão'],
+            ['title' => 'Fornecedores'],
+            ['title' => 'Taxa de cartão'],
+            ['title' => 'Impostos'],
+        ]);
     }
 }
