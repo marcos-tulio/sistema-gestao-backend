@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProcedureResource;
-use App\Models\Material;
 use App\Models\Procedure;
+use Illuminate\Http\Request;
 
 class ProcedureController  extends BaseController {
 
@@ -12,7 +12,7 @@ class ProcedureController  extends BaseController {
         return Procedure::class;
     }
 
-    protected function getRelations(): array {
+    protected function getRelations(Request $request): array {
         return ['materials'];
     }
 
@@ -48,51 +48,4 @@ class ProcedureController  extends BaseController {
 
         return $record->load('materials');
     }
-
-    /*protected function storeMiddleware($validated) {
-        // cria o procedimento
-        $record = $this->getModel()::create([
-            'name' => $validated['name'],
-        ]);
-
-        [$pivotData, $totalCostSum] = $this->prepareMaterialsPivot($validated['materials']);
-        $record->materials()->sync($pivotData);
-        $record->materialsCost = $totalCostSum;
-        $record->save();
-
-        return $record->load('materials');
-    }
-
-    protected function updateMiddleware($record, $validated) {
-        // atualiza campos principais do procedimento
-        $record->fill($validated);
-
-        [$pivotData, $totalCostSum] = $this->prepareMaterialsPivot($validated['materials']);
-        $record->materials()->sync($pivotData);
-        $record->materialsCost = $totalCostSum;
-        $record->save();
-
-        return $record->load('materials');
-    }
-
-    private function prepareMaterialsPivot(array $materials): array {
-        $pivotData = [];
-        $totalCostSum = '0';
-
-        $dbMaterials = Material::whereIn('id', collect($materials)->pluck('id'))->get()->keyBy('id');
-
-        foreach ($materials as $material) {
-            $dbMaterial = $dbMaterials[$material['id']];
-            $totalCost = bcmul($material['quantityUsed'], $dbMaterial->unitCost, 8);
-
-            $pivotData[$material['id']] = [
-                'quantityUsed' => $material['quantityUsed'],
-                'totalCost' => $totalCost,
-            ];
-
-            $totalCostSum = bcadd($totalCostSum, $totalCost, 8);
-        }
-
-        return [$pivotData, $totalCostSum];
-    }*/
 }

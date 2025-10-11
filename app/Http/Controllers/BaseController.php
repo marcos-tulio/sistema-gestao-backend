@@ -47,6 +47,19 @@ abstract class BaseController extends Controller {
         return $request->validate($this->getUpdateRules());
     }
 
+    protected function getStoreRequest(Request $request) {
+        $request->headers->set('Accept', 'application/json');
+
+        $input = $request->all();
+        if (empty($input)) return response()->json(['message' => 'Nenhum campo informado'], 400);
+
+        $allRules = $this->getStoreRules();
+        $rules = array_intersect_key($allRules, $input);
+        if (empty($rules)) return response()->json(['message' => 'Nenhum campo válido enviado'], 400);
+
+        return $request;
+    }
+
     protected function getUpdateRequest(Request $request) {
         $request->headers->set('Accept', 'application/json');
 
@@ -161,34 +174,51 @@ abstract class BaseController extends Controller {
 
             return $this->transformRecord($record);
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Requisição inválida'], 400);
+            return $this->errorHandler($e);
         }
     }
 
     public function store(Request $request) {
-        $request->headers->set('Accept', 'application/json');
+        try {
+            $requestValidated = $this->getStoreRequest($request);
+            if (!$requestValidated instanceof Request) return $requestValidated;
 
-        $validated = $this->getStoreValidator($request);
+            $validated = $this->getStoreValidator($request);
 
-        $record = $this->storeMiddleware($validated);
+            $record = $this->storeMiddleware($validated);
+            if (!$record) return response()->json(['message' => 'Erro ao criar registro'], 500);
 
-        if (!$record) return response()->json(['message' => 'Erro ao criar registro'], 500);
-
-        return $this->transformRecord($record);
+            return $this->transformRecord($record);
+        } catch (\Exception $e) {
+            return $this->errorHandler($e);
+        }
     }
 
     public function update(Request $request, string $id) {
-        $requestValidated = $this->getUpdateRequest($request);
+        try {
+            $requestValidated = $this->getUpdateRequest($request);
+            if (!$requestValidated instanceof Request) return $requestValidated;
 
-        if (!$requestValidated instanceof Request) return $requestValidated;
+            $validated = $this->getUpdateValidator($requestValidated);
 
-        $validated = $this->getUpdateValidator($requestValidated);
+            $record = $this->getModel()::find($id);
+            if (!$record) return response()->json(['message' => 'Registro não encontrado.'], 404);
 
-        $record = $this->getModel()::find($id);
-        if (!$record) return response()->json(['message' => 'Registro não encontrado.'], 404);
+            $record = $this->updateMiddleware($record, $validated);
 
-        $record = $this->updateMiddleware($record, $validated);
+            return $this->transformRecord($record);
+        } catch (\Exception $e) {
+            return $this->errorHandler($e);
+        }
+    }
 
-        return $this->transformRecord($record);
+    protected function errorHandler(\Exception $e) {
+        if ($e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException)
+            return response()->json(['message' => 'Registro nao encontrado'], 404);
+
+        if ($e->getCode() === '23505')
+            return response()->json(['message' => 'Já existe um registro cadastrado com esses dados'], 409);
+
+        return response()->json(['message' => 'Requisição inválida'], 400);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CollaboratorController;
+use App\Http\Controllers\FinancialItemController;
 use App\Http\Controllers\FinancialTypeController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PricingProcedureController;
@@ -38,4 +39,8 @@ Route::apiResource('/colaboradores', CollaboratorController::class);
 Route::apiResource('/precificacao/produtos', PricingProductController::class);
 Route::apiResource('/precificacao/procedimentos', PricingProcedureController::class);
 
-Route::apiResource('/financeiro', FinancialTypeController::class);
+Route::delete('/financeiro/itens', [FinancialItemController::class, 'destroyMany']);
+Route::apiResource('/financeiro/itens', FinancialItemController::class);
+
+Route::apiResource('/financeiro', FinancialTypeController::class)
+    ->only(['index', 'show']);

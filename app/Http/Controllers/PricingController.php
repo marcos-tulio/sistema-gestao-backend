@@ -11,7 +11,7 @@ abstract class PricingController extends BaseController {
 
     abstract protected function getModelRelationed(): string;
 
-    protected function getRelations(): array {
+    protected function getRelations(Request $request): array {
         return [];
     }
 
@@ -62,7 +62,7 @@ abstract class PricingController extends BaseController {
         return parent::index($request, $query);
     }
 
-    public function show(string $id) {
+    public function show(string $id, Request $request) {
         $record = $this->getModelRelationed()::query()->with(['currentPricing', 'latestPricing'])->find($id);
 
         if (!$record) return response()->json(['message' => 'Item não encontrado'], 404);
@@ -124,8 +124,6 @@ abstract class PricingController extends BaseController {
             $latestPricing = $modelRelationed->latestPricing()->updateOrCreate([], $validated['new']);
             $modelRelationed->setRelation('latestPricing', $latestPricing);
         }
-
-        //$modelRelationed->save();
 
         return $this->transformRecord($modelRelationed);
     }
