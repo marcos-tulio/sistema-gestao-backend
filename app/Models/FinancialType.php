@@ -14,8 +14,4 @@ class FinancialType extends Model {
     public function categories() {
         return $this->hasMany(FinancialCategory::class);
     }
-
-    /*public function items() {
-        return $this->hasMany(FinancialItem::class);
-    }*/
 }

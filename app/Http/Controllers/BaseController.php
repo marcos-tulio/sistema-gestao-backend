@@ -76,8 +76,6 @@ abstract class BaseController extends Controller {
     protected function transformCollection($records) {
         $resource = $this->getResourceCollection();
         return $resource ? new $resource($records) : $records;
-
-        //return $resource ? $resource::collection($records) : $records;
     }
 
     protected function transformRecord($record) {
@@ -103,13 +101,13 @@ abstract class BaseController extends Controller {
 
     public function destroy(string $id): JsonResponse {
         $record = $this->getModel()::find($id);
+        if (!$record) return response()->json(['message' => 'Registro não encontrado.'], 404);
 
-        if (!$record)
-            return response()->json(['message' => 'Registro não encontrado.'], 404);
+        if (isset($record->isDeletable) && !$record->isDeletable)
+            return response()->json(['message' => 'O registro não pode ser apagado.'], 400);
 
         $record->delete();
-
-        return response()->json(['message' => 'Registro deletado com sucesso.'], 200);
+        return response()->json(['message' => 'Registro apagado com sucesso.'], 200);
     }
 
     public function index(Request $request, $query = null) {
@@ -169,8 +167,7 @@ abstract class BaseController extends Controller {
             $modelClass = $this->getModel();
             $record = $modelClass::with($this->getRelations($request))->find($id);
 
-            if (!$record)
-                return response()->json(['message' => 'Item não encontrado'], 404);
+            if (!$record) return response()->json(['message' => 'Item não encontrado'], 404);
 
             return $this->transformRecord($record);
         } catch (\Exception $e) {
@@ -204,6 +201,9 @@ abstract class BaseController extends Controller {
             $record = $this->getModel()::find($id);
             if (!$record) return response()->json(['message' => 'Registro não encontrado.'], 404);
 
+            if (isset($record->isEditable) && !$record->isEditable)
+                return response()->json(['message' => 'O registro não pode ser editado.'], 400);
+
             $record = $this->updateMiddleware($record, $validated);
 
             return $this->transformRecord($record);
@@ -213,12 +213,15 @@ abstract class BaseController extends Controller {
     }
 
     protected function errorHandler(\Exception $e) {
+        if ($e instanceof \Illuminate\Validation\ValidationException)
+            return response()->json(['message' => 'Requisição inválida', 'errors' => $e->validator->errors()], 400);
+
         if ($e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException)
             return response()->json(['message' => 'Registro nao encontrado'], 404);
 
         if ($e->getCode() === '23505')
             return response()->json(['message' => 'Já existe um registro cadastrado com esses dados'], 409);
 
-        return response()->json(['message' => 'Requisição inválida'], 400);
+        return response()->json(['message' => 'Requisição inválida', 'error' => $e], 400);
     }
 }

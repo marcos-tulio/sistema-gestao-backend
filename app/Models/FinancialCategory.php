@@ -10,4 +10,8 @@ class FinancialCategory extends Model {
     public function items() {
         return $this->hasMany(FinancialItem::class);
     }
+
+    public function type() {
+        return $this->belongsTo(FinancialType::class, 'financial_type_id');
+    }
 }

@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class FinancialTypeValue extends Model {
     public $timestamps = false;
 
-    public function financialType() {
-        return $this->belongsTo(FinancialType::class);
+    protected $fillable = [
+        "financial_type_id",
+        'year',
+        'month',
+        'value',
+    ];
+
+    public function type() {
+        return $this->belongsTo(FinancialType::class, 'financial_type_id');
     }
 }

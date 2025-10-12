@@ -5,9 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class FinancialItemValue extends Model {
+
     public $timestamps = false;
 
-    public function financialItem() {
-        return $this->belongsTo(FinancialItem::class);
+    protected $fillable = [
+        "financial_item_id",
+        'year',
+        'month',
+        'value',
+    ];
+
+    public function item() {
+        return $this->belongsTo(FinancialItem::class, 'financial_item_id');
     }
 }

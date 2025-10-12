@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CollaboratorController;
 use App\Http\Controllers\FinancialItemController;
+use App\Http\Controllers\FinancialItemValueController;
 use App\Http\Controllers\FinancialTypeController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PricingProcedureController;
@@ -39,8 +40,10 @@ Route::apiResource('/colaboradores', CollaboratorController::class);
 Route::apiResource('/precificacao/produtos', PricingProductController::class);
 Route::apiResource('/precificacao/procedimentos', PricingProcedureController::class);
 
+Route::patch('/financeiro/valores', [FinancialItemValueController::class, 'updateWithoutId']);
+Route::apiResource('/financeiro/valores', FinancialItemValueController::class)->except(['update']);
+
 Route::delete('/financeiro/itens', [FinancialItemController::class, 'destroyMany']);
 Route::apiResource('/financeiro/itens', FinancialItemController::class);
 
-Route::apiResource('/financeiro', FinancialTypeController::class)
-    ->only(['index', 'show']);
+Route::apiResource('/financeiro', FinancialTypeController::class)->only(['index', 'show']);

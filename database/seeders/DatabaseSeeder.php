@@ -2,9 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Financial;
-use App\Models\FinancialCategory;
-use App\Models\FinancialItem;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder {
@@ -22,7 +19,6 @@ class DatabaseSeeder extends Seeder {
             ProductSeeder::class,
             ProcedureSeeder::class,
             FinancialTypeSeeder::class,
-            FinancialTypeValueSeeder::class,
             FinancialCategorySeeder::class,
             FinancialItemSeeder::class,
         ]);

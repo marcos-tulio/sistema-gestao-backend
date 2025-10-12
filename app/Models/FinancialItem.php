@@ -10,8 +10,12 @@ class FinancialItem extends Model {
 
     protected $fillable = [
         "financial_category_id",
-        "title",
-        "isEditable"
+        "title"
+    ];
+
+    protected $attributes = [
+        'isEditable'  => true,
+        'isDeletable' => true
     ];
 
     protected static function booted() {
@@ -25,6 +29,6 @@ class FinancialItem extends Model {
     }
 
     public function category() {
-        return $this->belongsTo(FinancialCategory::class);
+        return $this->belongsTo(FinancialCategory::class, "financial_category_id");
     }
 }

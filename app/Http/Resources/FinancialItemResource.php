@@ -12,7 +12,8 @@ class FinancialItemResource extends JsonResource {
         return [
             'id'     => $this->id,
             'title'  => $this->title,
-            'isEditable' => $this->isEditable,
+            'isEditable'  => $this->isEditable,
+            'isDeletable' => $this->isDeletable,
             'values' => ValueResource::collection($this->values),
         ];
     }
