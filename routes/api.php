@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CollaboratorController;
+use App\Http\Controllers\FinancialCategoryController;
 use App\Http\Controllers\FinancialItemController;
 use App\Http\Controllers\FinancialItemValueController;
 use App\Http\Controllers\FinancialTypeController;
@@ -39,6 +40,9 @@ Route::apiResource('/colaboradores', CollaboratorController::class);
 
 Route::apiResource('/precificacao/produtos', PricingProductController::class);
 Route::apiResource('/precificacao/procedimentos', PricingProcedureController::class);
+
+Route::patch('/financeiro/categorias', [FinancialCategoryController::class, 'updateMany']);
+Route::apiResource('/financeiro/categorias', FinancialCategoryController::class);
 
 Route::patch('/financeiro/valores', [FinancialItemValueController::class, 'updateWithoutId']);
 Route::apiResource('/financeiro/valores', FinancialItemValueController::class)->except(['update']);

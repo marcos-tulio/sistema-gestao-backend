@@ -13,6 +13,8 @@ class FinancialCategoryResource extends JsonResource {
             'id'     => $this->id,
             'title'  => $this->title,
             'order'  => $this->order,
+            'isDeletable' => $this->isDeletable,
+            'isEditable'  => $this->isEditable,
             'items'  => FinancialItemResource::collection($this->items),
         ];
     }

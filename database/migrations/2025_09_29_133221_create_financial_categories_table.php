@@ -11,8 +11,12 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('financial_type_id')->constrained()->onDelete('cascade');
             $table->string('title');
+            $table->string('name');
             $table->unsignedInteger('order')->nullable();
             $table->boolean('isDeletable')->default(true);
+            $table->boolean('isEditable')->default(true);
+
+            $table->unique(['financial_type_id', 'name']);
         });
     }
 

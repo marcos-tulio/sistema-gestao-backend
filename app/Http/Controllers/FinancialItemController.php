@@ -83,7 +83,7 @@ class FinancialItemController extends BaseController {
 
             // Dispara o observer manualmente apenas uma vez por grupo
             $observer = app(\App\Observers\FinancialItemValueObserver::class);
-            foreach ($groups as $value) $observer->recalculateTypeTotal($value);
+            foreach ($groups as $value) $observer->recalculateTotalByItemValue($value);
 
             return response()->json([
                 'message'      => count($deletedIds) . " registros removidos com sucesso",

@@ -25,7 +25,8 @@ class FinancialTypeController extends BaseController {
         return [
             'id',
             'title',
-            'values.year'
+            'values.year',
+            'categories.order'
         ];
     }
 
@@ -43,6 +44,9 @@ class FinancialTypeController extends BaseController {
         $years = $request->input('year');
 
         if (!$years) return [
+            'categories' => function ($q) {
+                $q->orderBy('order');
+            },
             'categories.items' => function ($q) {
                 $q->orderBy('id');
             },
@@ -51,6 +55,9 @@ class FinancialTypeController extends BaseController {
 
 
         return [
+            'categories' => function ($q) {
+                $q->orderBy('order');
+            },
             'categories.items' => function ($q) {
                 $q->orderBy('id');
             },

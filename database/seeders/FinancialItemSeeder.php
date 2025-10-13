@@ -9,7 +9,7 @@ class FinancialItemSeeder extends Seeder {
 
     public function run(): void {
         FinancialCategory::find(1)?->items()->createMany([
-            ['title' => 'Receitas', 'isDeletable' => false],
+            ['title' => 'Receitas', 'isDeletable' => false, 'isEditable' => false],
         ]);
 
         FinancialCategory::find(2)?->items()->createMany([

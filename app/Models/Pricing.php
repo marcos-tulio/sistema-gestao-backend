@@ -66,7 +66,7 @@ abstract class Pricing extends Model {
             // Porcentagem de lucratividade
             $model->profitabilityPercentual = bcdiv(
                 $model->profitability ?? 0,
-                $model->price ?? 1,
+                (!$model->price || $model->price == 0) ? 1 : $model->price,
                 4
             );
         });

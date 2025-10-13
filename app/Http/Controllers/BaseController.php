@@ -40,11 +40,21 @@ abstract class BaseController extends Controller {
     }
 
     protected function getStoreValidator(Request $request): array {
-        return $request->validate($this->getStoreRules());
+        $validated = $request->validate($this->getStoreRules());
+
+        if (isset($validated['title']) && $validated['title'])
+            $validated['title'] = preg_replace('/\s+/', ' ', trim($validated['title']));
+
+        return $validated;
     }
 
     protected function getUpdateValidator(Request $request): array {
-        return $request->validate($this->getUpdateRules());
+        $validated = $request->validate($this->getUpdateRules());
+
+        if (isset($validated['title']) && $validated['title'])
+            $validated['title'] = preg_replace('/\s+/', ' ', trim($validated['title']));
+
+        return $validated;
     }
 
     protected function getStoreRequest(Request $request) {
