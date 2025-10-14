@@ -95,7 +95,11 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'search_path' => 'public',
-            'sslmode' => 'prefer',
+            'sslmode' => env('DB_SSLMODE', 'prefer'),
+            'options' => extension_loaded('pdo_pgsql') ? array_filter([
+                'channel_binding' => env('DB_CHANNEL_BINDING', 'prefer'),
+                'sslrootcert' => env('DB_SSLROOTCERT') ?: null,
+            ]) : [],
         ],
 
         'sqlsrv' => [
@@ -148,7 +152,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')).'-database-'),
+            'prefix' => env('REDIS_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')) . '-database-'),
             'persistent' => env('REDIS_PERSISTENT', false),
         ],
 
