@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CollaboratorController;
 use App\Http\Controllers\FinancialCategoryController;
 use App\Http\Controllers\FinancialItemController;
@@ -16,10 +17,6 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 })->middleware('auth:sanctum');*/
 
-Route::get('/status', function () {
-    return response()->json(['status' => 'ok']);
-});
-
 Route::get('/usuario', function () {
     return response()->json([
         "id" => 1,
@@ -32,6 +29,9 @@ Route::get('/usuario', function () {
         ]
     ]);
 });
+
+//Route::post('/login/google', [AuthController::class, 'callbackGoogle']);
+Route::post('/auth/google/callback', [AuthController::class, 'callbackGoogle']);
 
 Route::apiResource('/materiais', MaterialController::class);
 Route::apiResource('/produtos', ProductController::class);

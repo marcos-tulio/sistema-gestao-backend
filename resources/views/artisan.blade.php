@@ -44,6 +44,7 @@
             max-width: 100px 
         }
     </style>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
     <div class="container">
@@ -52,6 +53,22 @@
         <div class="buttons">
             <button onclick="runCommand('migrate:fresh')">Migrate Fresh</button>
             <button onclick="runCommand('db:seed')">db:seed</button>
+
+            <!-- Configuração -->
+            <div id="g_id_onload"
+                data-client_id="{{ config('services.google.client_id') }}"
+                data-callback="handleCredentialResponse">
+            </div>
+
+            <!-- Botão -->
+            <div class="g_id_signin"
+                data-type="standard"
+                data-size="large"
+                data-theme="outline"
+                data-text="signin_with"
+                data-shape="rectangular">
+            </div>
+
         </div>
         <div class="buttons">
             <input id="command" type="text" placeholder="ex: migrate --seed">
@@ -79,6 +96,11 @@
                 eventSource.close();
             };
         }
+
+        window.handleCredentialResponse = function (response) {
+            const output = document.getElementById("output");
+            output.textContent += "ID TOKEN:\n" + response.credential + "\n\n";
+        };
     </script>
 </body>
 </html>
