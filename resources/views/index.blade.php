@@ -2,8 +2,12 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gestão</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: light)"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon-light.svg" media="(prefers-color-scheme: dark)"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{ config('app.name') }}</title>
 
     @php
         // Caminho do manifest dentro da pasta .vite
