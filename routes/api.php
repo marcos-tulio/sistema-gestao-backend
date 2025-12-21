@@ -32,6 +32,8 @@ Route::get('/usuario', function () {
 
 //Route::post('/login/google', [AuthController::class, 'callbackGoogle']);
 Route::post('/auth/google/callback', [AuthController::class, 'callbackGoogle']);
+Route::post('/auth/refresh', [AuthController::class, 'refresh']);
+Route::post('/auth/logout', [AuthController::class, 'logout']);
 
 Route::apiResource('/materiais', MaterialController::class);
 Route::apiResource('/produtos', ProductController::class);

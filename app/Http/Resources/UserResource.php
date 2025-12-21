@@ -14,7 +14,7 @@ class UserResource extends JsonResource {
             'email'       => $this->googleEmail,
             'image'       => $this->googleImage,
 
-            'googleName'  => $this->googleImage,
+            'googleName'  => $this->googleName,
             'googleEmail' => $this->googleEmail,
             'googleImage' => $this->googleImage,
         ];

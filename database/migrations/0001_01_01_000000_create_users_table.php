@@ -16,7 +16,6 @@ return new class extends MigrationAbstract {
             $table->string('googleEmail')->nullable()->unique();
             $table->string('googleImage')->nullable();
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
 

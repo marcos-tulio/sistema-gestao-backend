@@ -9,7 +9,7 @@ return new class extends MigrationAbstract {
     public $withinTransaction = false;
 
     public function up(): void {
-        Schema::create('cache', function (Blueprint $table) {
+        /*Schema::create('cache', function (Blueprint $table) {
             $table->string('key')->primary();
             $table->mediumText('value');
             $table->integer('expiration');
@@ -19,7 +19,7 @@ return new class extends MigrationAbstract {
             $table->string('key')->primary();
             $table->string('owner');
             $table->integer('expiration');
-        });
+        });*/
     }
 
     public function down(): void {
